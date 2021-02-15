@@ -19,31 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [DashboardController::class, 'show'])->name('dashboard.show');
+
+Route::prefix('debts')->name('debts.')->group(function () {
+    Route::get('/', [DebtsController::class, 'show'])->name('show');
 });
 
-Route::get('/debts', [DebtsController::class, 'show']);
+Route::prefix('calculate')->name('calculate.')->group(function () {
+    Route::get('avalanche', [CalculatorController::class, 'avalanche'])->name('avalanche.show');
+    Route::get('snowball', [CalculatorController::class, 'snowball'])->name('snowball.show');
+});
 
-// Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
-    
-    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard.show');
+Route::prefix('how-to')->name('how-to.')->group(function () {
+    Route::get('avalanche', [HowToController::class, 'avalanche'])->name('avalanche.show');
+    Route::get('snowball', [HowToController::class, 'snowball'])->name('snowball.show');
+});
 
-    Route::prefix('debts')->name('debts.')->group(function () {
-        Route::get('/', [DebtsController::class, 'show'])->name('show');
-    });
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/about', [AboutController::class, 'show'])->name('about.show');
 
-    Route::prefix('calculate')->name('calculate.')->group(function () {
-        Route::get('avalanche', [CalculatorController::class, 'avalanche'])->name('avalanche.show');
-        Route::get('snowball', [CalculatorController::class, 'snowball'])->name('snowball.show');
-    });
-
-    Route::prefix('how-to')->name('how-to.')->group(function () {
-        Route::get('avalanche', [HowToController::class, 'avalanche'])->name('avalanche.show');
-        Route::get('snowball', [HowToController::class, 'snowball'])->name('snowball.show');
-    });
-
-    Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
-    Route::get('/about', [AboutController::class, 'show'])->name('about.show');
-
-// });
