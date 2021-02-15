@@ -4,12 +4,10 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <header class="mx-auto flex flex-row">
-                    <img src='/img/logo.png' class="sm:hidden p-2 h-auto">
-                    @auth
+                    <img src='/img/snowball.png' alt='avalanche-calculator' class="sm:hidden p-2 h-auto">
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight px-6 py-5">
-                        {{ Auth::user()->name }} - {{ ucwords(str_replace('.', ' - ', str_replace('-', ' ', str_replace('.show', '', Route::currentRouteName())))) }}
+                        {{ ucwords(str_replace('.', ' - ', str_replace('-', ' ', str_replace('.show', '', Route::currentRouteName())))) }}
                     </h2>
-                    @endauth
                 </header>
             </div>
 
