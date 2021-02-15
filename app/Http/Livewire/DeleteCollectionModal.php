@@ -10,7 +10,7 @@ class DeleteCollectionModal extends Component
     public $title;
     public $description;
 
-    public DebtCollection $debt_collection;
+    public $debt_collection;
 
     protected $listeners = ['assignModelToDelete' => 'assign'];
 
