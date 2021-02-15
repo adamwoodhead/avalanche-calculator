@@ -74,6 +74,10 @@
                             <x-jet-dropdown-link href="{{ route('register') }}">
                                 {{ __('Register') }}
                             </x-jet-dropdown-link>
+                            
+                            <x-jet-dropdown-link href="{{ route('login') }}">
+                                {{ __('login') }}
+                            </x-jet-dropdown-link>
                             @endauth
                         </x-slot>
                     </x-jet-dropdown>
@@ -149,6 +153,7 @@
             @endauth
 
             <div class="mt-3 space-y-1">
+                @auth
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
@@ -164,6 +169,15 @@
                         {{ __('Logout') }}
                     </x-jet-responsive-nav-link>
                 </form>
+                @else
+                <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                    {{ __('Register') }}
+                </x-jet-responsive-nav-link>
+                
+                <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    {{ __('login') }}
+                </x-jet-responsive-nav-link>
+                @endauth
             </div>
         </div>
     </div>
