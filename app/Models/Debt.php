@@ -19,6 +19,8 @@ class Debt extends Model
     ];
 
     protected $fillable = [
+        'debt_collection_id',
+
         'name',
         'description',
         
@@ -33,6 +35,23 @@ class Debt extends Model
         
         'interest_free_months'
     ];
+
+    public function getDebtTypeTextAttribute(){
+        switch($this->debt_type){
+            case 1:
+                return 'Regular';
+            case 2:
+                return 'Balance Transfer';
+            case 3:
+                return 'Purchase';
+            case 4:
+                return 'Short Term Loan';
+            case 5:
+                return 'Long Term Loan';
+            default:
+                return 'Invalid';
+        }
+    }
 
     public function debt_collection(){
         return $this->belongsTo(DebtCollection::class);

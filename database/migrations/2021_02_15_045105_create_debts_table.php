@@ -19,9 +19,9 @@ class CreateDebtsTable extends Migration
             $table->foreignId('debt_collection_id');
 
             $table->string('name', 50);
-            $table->string('description', 250);
+            $table->string('description', 250)->nullable();
             
-            $table->int('debt_type')->default(0);
+            $table->integer('debt_type')->default(0);
             
             $table->double('opening_balance');
             $table->double('interest_rate');
@@ -30,7 +30,7 @@ class CreateDebtsTable extends Migration
             $table->double('minimum_payment_flat');
             $table->double('minimum_payment_percentage')->default(1);
 
-            $table->int('interest_free_months')->default(0);
+            $table->integer('interest_free_months')->default(0);
 
             $table->timestamps();
         });

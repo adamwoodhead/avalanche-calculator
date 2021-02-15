@@ -19,7 +19,7 @@ class CreateDebtCollectionsTable extends Migration
             $table->foreignId('user_id');
 
             $table->string('name', 50);
-            $table->string('description', 250);
+            $table->string('description', 250)->nullable();
 
             $table->timestamps();
         });
