@@ -7,12 +7,12 @@ use Livewire\Component;
 
 class Sidebar extends Component
 {
-    public $contains_calculators = false;
+    public $contains_calculate = false;
     public $contains_how_to = false;
 
     public function mount(){
-        if(strpos(Route::currentRouteName(), 'calculators') !== false){
-            $this->contains_calculators = true;
+        if(strpos(Route::currentRouteName(), 'calculate') !== false){
+            $this->contains_calculate = true;
         }
         
         if(strpos(Route::currentRouteName(), 'how-to') !== false){
