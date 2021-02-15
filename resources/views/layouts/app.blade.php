@@ -34,7 +34,7 @@
             <!-- Page Content -->
             <main class="md:pl-72">
                 <div class="md:py-8">
-                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="max-w-7xl mx-auto sm:px-8">
                         {{ $slot }}
                     </div>
                 </div>
