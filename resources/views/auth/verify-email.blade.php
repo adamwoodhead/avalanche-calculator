@@ -1,7 +1,9 @@
-<x-guest-layout>
+<x-app-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+        <x-slot name="header">
+            <div>
+                <h2 class="text-xl mb-4">{{ __('Verify Email') }}</h2>
+            </div>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -34,4 +36,4 @@
             </form>
         </div>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-app-layout>

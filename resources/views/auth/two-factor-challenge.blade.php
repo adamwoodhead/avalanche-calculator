@@ -1,7 +1,9 @@
-<x-guest-layout>
+<x-app-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+        <x-slot name="header">
+            <div>
+                <h2 class="text-xl mb-4">{{ __('2FA Challenge') }}</h2>
+            </div>
         </x-slot>
 
         <div x-data="{ recovery: false }">
@@ -54,4 +56,4 @@
             </form>
         </div>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-app-layout>

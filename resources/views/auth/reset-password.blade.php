@@ -1,7 +1,9 @@
-<x-guest-layout>
+<x-app-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+        <x-slot name="header">
+            <div>
+                <h2 class="text-xl mb-4">{{ __('Password Reset') }}</h2>
+            </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -33,4 +35,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-app-layout>
