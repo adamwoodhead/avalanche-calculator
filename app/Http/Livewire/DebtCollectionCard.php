@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class DebtCollectionCard extends Component
 {
-    public DebtCollection $collection;
+    public $collection;
 
     protected $listeners = ['rerenderDebtCollectionCard' => '$refresh'];
 
