@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Mail;
 class DashboardController extends Controller
 {
     public function show(){
+        $user = User::findOrFail(1);
+
+        Mail::send('emails.test', ['user' => $user], function ($m) use ($user) {
+            $m->to($user->email, $user->name)->subject('Your Reminder!');
+        });
+
         return view('dashboard');
     }
 }
