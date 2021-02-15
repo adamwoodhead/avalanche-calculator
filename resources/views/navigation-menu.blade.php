@@ -49,6 +49,7 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
+                            @auth
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
@@ -69,6 +70,11 @@
                                     {{ __('Logout') }}
                                 </x-jet-dropdown-link>
                             </form>
+                            @else
+                            <x-jet-dropdown-link href="{{ route('register') }}">
+                                {{ __('Register') }}
+                            </x-jet-dropdown-link>
+                            @endauth
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
