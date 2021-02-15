@@ -76,7 +76,7 @@
                             </x-jet-dropdown-link>
                             
                             <x-jet-dropdown-link href="{{ route('login') }}">
-                                {{ __('login') }}
+                                {{ __('Login') }}
                             </x-jet-dropdown-link>
                             @endauth
                         </x-slot>
@@ -175,7 +175,7 @@
                 </x-jet-responsive-nav-link>
                 
                 <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    {{ __('login') }}
+                    {{ __('Login') }}
                 </x-jet-responsive-nav-link>
                 @endauth
             </div>
