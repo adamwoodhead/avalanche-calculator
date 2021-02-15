@@ -1,5 +1,11 @@
 <x-app-layout>
     <x-jet-authentication-card>
+        <x-slot name="header">
+            <div>
+                <h2 class="text-xl mb-4">{{ __('Register') }}</h2>
+            </div>
+        </x-slot>
+
         <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">

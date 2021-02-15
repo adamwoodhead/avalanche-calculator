@@ -1,5 +1,11 @@
 <x-app-layout>
     <x-jet-authentication-card>
+        <x-slot name="header">
+            <div>
+                <h2 class="text-xl mb-4">{{ __('Login') }}</h2>
+            </div>
+        </x-slot>
+
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -29,11 +35,15 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                <div class="flex flex-row-reverse items-center justify-end">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                    
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                        {{ __('Register') }}
+                    </a>
+                </div>
 
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
