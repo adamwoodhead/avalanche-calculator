@@ -58,4 +58,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    
+    public function getFirstNameAttribute($value)
+    {
+        $names = explode(' ', $value);
+        return ucfirst($names[0]);
+    }
+    
+    public function getLastNameAttribute($value)
+    {
+        $names = explode(' ', $value);
+        return ucfirst(end($names));
+    }
+
+    public function debt_collections(){
+        return $this->hasMany(DebtCollection::class);
+    }
 }
