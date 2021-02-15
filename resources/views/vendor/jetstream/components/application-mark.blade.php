@@ -1,0 +1,1 @@
+<img src='/img/snowball.png' alt='avalanche-calculator'/>
