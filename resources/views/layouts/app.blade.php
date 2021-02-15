@@ -23,7 +23,8 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <x-jet-banner />
+        {{-- // TODO Check uses of the jetstream "banner" --}}
+        {{-- <x-jet-banner /> --}}
 
         <div class="min-h-screen bg-gray-100">
             <livewire:sidebar/>
