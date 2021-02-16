@@ -11,16 +11,24 @@ class ContactReceiptMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name;
+    public $email;
+    public $first_name;
+    public $last_name;
+    public $subject;
+    public $body_message;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($email, $first_name, $last_name, $subject, $message)
     {
-        $this->name = $name;
+        $this->email = $email;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->subject = $subject;
+        $this->body_message = $message;
     }
 
     /**
@@ -30,7 +38,7 @@ class ContactReceiptMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contact.receipt', ['name' => $this->name])
-                    ->text('emails.contact.receipt_plain', ['name' => $this->name]);
+        return $this->view('emails.contact.receipt')
+                    ->text('emails.contact.receipt_plain');
     }
 }

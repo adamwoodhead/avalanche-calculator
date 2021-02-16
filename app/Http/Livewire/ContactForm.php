@@ -31,7 +31,7 @@ class ContactForm extends Component
 
         Mail::to('info@adamwoodhead.co.uk')->send(new ContactMail($this->email, $this->first_name, $this->last_name, $this->subject, $this->message));
 
-        Mail::to($this->email)->send(new ContactReceiptMail($this->first_name));
+        Mail::to($this->email)->send(new ContactReceiptMail($this->email, $this->first_name, $this->last_name, $this->subject, $this->message));
 
         $this->show_form = false;
     }

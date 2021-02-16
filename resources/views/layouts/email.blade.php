@@ -17,9 +17,7 @@
                                 <table border='0' cellpadding='0' cellspacing='0' id='templateHeader'>
                                     <tr>
                                         <td valign='top' class='headerContent'>
-                                            <a href='https://avalanchecalculator.com'>
-                                                <img src='https://avalanchecalculator.com/img/snowball.png' style='max-width:600px;padding:20px' id='headerImage' alt='Avalanche Calculator' />
-                                            </a>
+                                            <a href='https://avalanchecalculator.com'>Avalanche Calculator</a>
                                         </td>
                                     </tr>
                                 </table>
