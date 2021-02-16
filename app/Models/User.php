@@ -59,15 +59,15 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
     
-    public function getFirstNameAttribute($value)
+    public function getFirstNameAttribute()
     {
-        $names = explode(' ', $value);
+        $names = explode(' ', $this->name);
         return ucfirst($names[0]);
     }
     
-    public function getLastNameAttribute($value)
+    public function getLastNameAttribute()
     {
-        $names = explode(' ', $value);
+        $names = explode(' ', $this->name);
         return ucfirst(end($names));
     }
 
