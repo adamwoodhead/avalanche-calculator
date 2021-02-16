@@ -2,14 +2,13 @@
     <div class="flex flex-col w-full sm:w-72 text-gray-700 bg-white min-h-screen">
         <a href="{{ route('dashboard.show') }}">
             <div class="flex-shrink-0 px-8 py-4 flex flex-col items-center justify-between">
-                {{-- <img src="/img/snowball.png" width="100%" alt="Avalanche Calculator"/> --}}
-                <span class="text-lg mt-4 text-center font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Service Manager</span>
+                <img src="/img/snowball.png" width="100%" alt="Avalanche Calculator"/>
+                <span class="text-lg mt-4 text-center font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Avalanche Calculator</span>
             </div>
         </a>
         <nav :class="{'block': open_1, 'hidden': !open_1, 'block': open_2, 'hidden': !open_2}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto space-y-2">
             <livewire:sidebar-link title="Dashboard" route="dashboard.show"/>
             <livewire:sidebar-link title="Debts" route="debts.show"/>
-            {{-- <livewire:sidebar-link title="Bookings" route="bookings"/> --}}
             <div @click.away="open_1 = {{ $contains_calculate ? 'true' : 'false' }}" class="relative" x-data="{ open_1: {{ $contains_calculate ? 'true' : 'false' }} }">
                 <button @click="open_1 = !open_1" class="flex flex-row items-center w-full px-4 py-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                     <span>Calculators</span>
