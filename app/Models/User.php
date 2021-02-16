@@ -68,6 +68,7 @@ class User extends Authenticatable
     public function getLastNameAttribute()
     {
         $names = explode(' ', $this->name);
+        unset($names[0]);
         return ucfirst(end($names));
     }
 
