@@ -11,11 +11,14 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "graham-campbell/github": "^10.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "http-interop/http-factory-guzzle": "^1.0",
         "laravel/framework": "^8.12",
         "laravel/jetstream": "^2.1",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
+        "lcobucci/jwt": "^4.0",
         "livewire/livewire": "^2.0"
     },
     "require-dev": {
