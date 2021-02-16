@@ -9,16 +9,10 @@ use Illuminate\Support\Facades\View;
 class AboutController extends Controller
 {
     public function show(){
-        $commits = [];
-
-        try {
-            $commits = GitHub::repo()->commits()->all('adamwoodhead', 'avalanche-calculator', array('sha' => 'main'));
-        } catch (\Throwable $th) {
-
-        }
+        $commits = GitHub::repo()->commits()->all('adamwoodhead', 'avalanche-calculator', array('sha' => 'main'));
         
         return View::make('about', [
-            'commits' => $commits
+            'commits' => $commits,
         ]);
     }
 }
