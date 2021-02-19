@@ -4,8 +4,8 @@
             <label class="block text-gray-700 font-semibold">
                 Debt Name
             </label>
-            <input wire:model="debt_name" id="debt_name" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white" type="text" placeholder="Big Bad Bank">
-            @error('debt_name') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
+            <input wire:model="name" id="name" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white" type="text" placeholder="Big Bad Bank">
+            @error('name') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
         </div>
         <div class="flex-1">
             <label class="block text-gray-700 font-semibold">
@@ -13,6 +13,7 @@
             </label>
             <div class="col-span-6 sm:col-span-3">
                 <select wire:model="debt_type" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white">
+                    <option value="0" selected>What type of debt?</option>
                     <option value="10">Regular Credit Card</option>
                     <option value="20">Balance Transfer</option>
                     <option value="30">Purchase Card</option>
@@ -55,15 +56,15 @@
             <label class="block text-gray-700 font-semibold">
                 Minimum Payment Fixed
             </label>
-            <input wire:model="interest_rate" id="interest_rate" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="25">
-            @error('interest_rate') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
+            <input wire:model="min_payment_fixed" id="min_payment_fixed" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="25">
+            @error('min_payment_fixed') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
         </div>
         <div class="flex-1">
             <label class="block text-gray-700 font-semibold">
                 Minimum Payment %
             </label>
-            <input wire:model="monthly_charge" id="monthly_charge" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="2500">
-            @error('monthly_charge') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
+            <input wire:model="min_payment_percent" id="min_payment_percent" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="2500">
+            @error('min_payment_percent') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
         </div>
     </div>
     @if($debt_type == 20)

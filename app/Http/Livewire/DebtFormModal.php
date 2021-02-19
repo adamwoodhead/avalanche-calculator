@@ -6,11 +6,13 @@ use Livewire\Component;
 
 class DebtForm extends Component
 {
-    public $debt_name;
+    public $name;
     public $debt_type;
     public $opening_balance;
     public $interest_rate;
     public $monthly_charge;
+    public $min_payment_fixed;
+    public $min_payment_percent;
 
     public $bt_free_period;
     public $bt_interest_post;
@@ -24,7 +26,7 @@ class DebtForm extends Component
 
     public function rules(){
         return [
-            'debt_name' => 'required',
+            'name' => 'required',
             'debt_type' => 'required',
             'opening_balance' => 'required|between:1,100000',
             'interest_rate' => 'required',
@@ -42,8 +44,9 @@ class DebtForm extends Component
         ];
     }
 
-    public function updating(){
-        $this->validate();
+    public function updated($property)
+    {
+        $this->validateOnly($property);
     }
 
     public function submit(){
@@ -53,6 +56,6 @@ class DebtForm extends Component
 
     public function render()
     {
-        return view('livewire.debt-form');
+        return view('livewire.debt-form-modal');
     }
 }
