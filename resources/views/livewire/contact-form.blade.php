@@ -1,8 +1,7 @@
 <div class="min-h-full" x-data="{ open: @entangle('show_form') }">
     <div class="flex items-center">
-        <div class="w-full sm:mx-64 bg-white rounded-md p-4" x-show="open">
+        <div class="w-full bg-white rounded-md p-4" x-show="open">
             <h2 class="flex-1 text-lg font-semibold">Contact Us</h2>
-            <p class="text-gray-700">Some nice text</p>
             <form class="w-full mt-4 flex flex-col space-y-4" wire:submit.prevent="submit">
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0">
                     <div class="flex-1">
@@ -51,7 +50,7 @@
               </form>
         </div>
     </div>
-    <div class="flex flex-col md:mx-64 md:mt-64 sm:justify-center items-center" x-show="!open">
+    <div class="flex flex-col md:mt-64 sm:justify-center items-center" x-show="!open">
         <div class="w-full sm:w-96 flex flex-col bg-white sm:rounded-md p-4">
             <p class="h-full text-lg text-gray-700">Thanks {{ $first_name }}!</p>
             <p class="text-base text-gray-500">We'll get back to you as soon as possible!</p>
