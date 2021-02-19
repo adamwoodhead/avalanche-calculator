@@ -21,16 +21,24 @@ class CreateDebtsTable extends Migration
             $table->string('name', 50);
             $table->string('description', 250)->nullable();
             
-            $table->integer('debt_type')->default(0);
+            $table->integer('debt_type')->default(10);
             
             $table->double('opening_balance');
             $table->double('interest_rate');
             $table->double('monthly_charge')->default(0);
             
-            $table->double('minimum_payment_flat');
-            $table->double('minimum_payment_percentage')->default(1);
+            $table->double('min_payment_fixed')->default(0);
+            $table->double('min_payment_percent')->default(0);
+            
+            $table->integer('bt_free_period')->nullable();
+            $table->double('bt_interest_post')->nullable();
+            
+            $table->integer('pc_free_period')->nullable();
+            $table->double('pc_amount_spent')->nullable();
 
-            $table->integer('interest_free_months')->default(0);
+            $table->boolean('sl_can_overpay')->default(true);
+
+            $table->boolean('ll_can_overpay')->default(true);
 
             $table->timestamps();
         });
