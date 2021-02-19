@@ -42,7 +42,7 @@ return [
 
         'main' => [
             'method'     => 'token',
-            'token'      => config('GITHUB_PERSONAL_TOKEN', ''),
+            'token'      => trim(env('GITHUB_PERSONAL_TOKEN', '')),
             // 'backoff'    => false,
             // 'cache'      => false,
             // 'version'    => 'v3',
