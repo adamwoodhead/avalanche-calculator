@@ -8,7 +8,7 @@ Avalanche Calculator (despite the name), is a collection of self-help tools for 
 - Open Source, feel free to suggest contributions!
 - Privacy Oriented, users are always in full control of their data
 
-The website uses [Laravel](https://laravel.com/) as the base framework.
+The website utilizes [Laravel](https://laravel.com/) as the base framework.
 
 ## Contributing
 
@@ -17,6 +17,16 @@ Feel free to contribute! Whether you've found a typo, fixed a bug, offer a new f
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Avalanche Calculator, please send an e-mail to Adam Woodhead via [ac@adamwoodhead.co.uk](mailto:ac@adamwoodhead.co.uk). All security vulnerabilities will be promptly addressed.
+
+## Credits
+
+Credit where credit due, this project wouldn't be possible without these great packages.
+
+- [Laravel](https://laravel.com/)
+- [Laravel Jetstream](https://jetstream.laravel.com/)
+- [Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
+- [Livewire](https://github.com/livewire/livewire)
+- [Laravel DebugBar](https://github.com/barryvdh/laravel-debugbar)
 
 ## License
 
