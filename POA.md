@@ -1,4 +1,4 @@
-### Plan Of Action
+# Plan Of Action
 
 ## Features
 - Debt Collections (group of)
@@ -32,6 +32,6 @@
 
 ## Potential Features
 
-# Active Planner
+### Active Planner
 
 The timeline would allow users to bring up calculations made in the past, allow the user to enter the real amounts paid each month, and compare the calculated results.
