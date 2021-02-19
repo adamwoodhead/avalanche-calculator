@@ -25,7 +25,7 @@ Route::prefix('debts')->name('debts.')->group(function () {
     Route::get('/', [DebtsController::class, 'show'])->name('show');
 });
 
-Route::prefix('calculate')->name('calculate.')->group(function () {
+Route::prefix('calculate')->name('calculator.')->group(function () {
     Route::get('avalanche', [CalculatorController::class, 'avalanche'])->name('avalanche.show');
     Route::get('snowball', [CalculatorController::class, 'snowball'])->name('snowball.show');
 });

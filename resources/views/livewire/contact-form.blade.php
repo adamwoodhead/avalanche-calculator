@@ -63,8 +63,8 @@
                         @else
                             <p>In the mean time why don't you try out one of our calculators?</p>
                             <div class="flex flex-row flex-grow mt-4 space-x-4">
-                                <a href="{{ route('calculate.avalanche.show') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Avalanche<br/>Calculator</a>
-                                <a href="{{ route('calculate.snowball.show') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Snowball<br/>Calculator</a>
+                                <a href="{{ route('calculator.avalanche.show') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Avalanche<br/>Calculator</a>
+                                <a href="{{ route('calculator.snowball.show') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Snowball<br/>Calculator</a>
                             </div>
                         @endif
                     @else

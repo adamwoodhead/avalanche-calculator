@@ -16,8 +16,8 @@
                 </button>
                 <div x-show="open_1" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow grid gap-y-2">
-                        <livewire:sidebar-link title="Avalanche Calculator" route="calculate.avalanche.show"/>
-                        <livewire:sidebar-link title="Snowball Calculator" route="calculate.snowball.show"/>
+                        <livewire:sidebar-link title="Avalanche Calculator" route="calculator.avalanche.show"/>
+                        <livewire:sidebar-link title="Snowball Calculator" route="calculator.snowball.show"/>
                     </div>
                 </div>
             </div>

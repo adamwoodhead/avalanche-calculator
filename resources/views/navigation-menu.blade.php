@@ -110,11 +110,11 @@
             <span class="block px-4 py-2 text-base font-bold text-gray-600">Calculators</span>
 
             <div class="ml-4">
-                <x-jet-responsive-nav-link href="{{ route('calculate.avalanche.show') }}" :active="request()->routeIs('calculate.avalanche.show')">
+                <x-jet-responsive-nav-link href="{{ route('calculator.avalanche.show') }}" :active="request()->routeIs('calculator.avalanche.show')">
                     {{ __('Avalanche') }}
                 </x-jet-responsive-nav-link>
                 
-                <x-jet-responsive-nav-link href="{{ route('calculate.snowball.show') }}" :active="request()->routeIs('calculate.snowball.show')">
+                <x-jet-responsive-nav-link href="{{ route('calculator.snowball.show') }}" :active="request()->routeIs('calculator.snowball.show')">
                     {{ __('Snowball') }}
                 </x-jet-responsive-nav-link>
             </div>

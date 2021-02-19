@@ -11,7 +11,7 @@ class Sidebar extends Component
     public $contains_how_to = false;
 
     public function mount(){
-        if(strpos(Route::currentRouteName(), 'calculate') !== false){
+        if(strpos(Route::currentRouteName(), 'calculator') !== false){
             $this->contains_calculate = true;
         }
         
