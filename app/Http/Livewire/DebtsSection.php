@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Debt;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -13,8 +14,14 @@ class DebtsSection extends Component
         'rerenderDebtsSection' => '$refresh',
     ];
 
+    public function create(){
+        $debt = new Debt;
+
+        $this->emit('assignDebtToCreate');
+    }
+
     public function mount(){
-        $this->debts = Auth::user()->debts()->get();
+        $this->debts = Auth::user()->debts()->orderBy('name')->get();
     }
 
     public function render()

@@ -36,9 +36,9 @@ class CreateDebtsTable extends Migration
             $table->integer('pc_free_period')->nullable();
             $table->double('pc_amount_spent')->nullable();
 
-            $table->boolean('sl_can_overpay')->default(true);
+            $table->boolean('sl_can_overpay')->nullable();
 
-            $table->boolean('ll_can_overpay')->default(true);
+            $table->boolean('ll_can_overpay')->nullable();
 
             $table->timestamps();
         });

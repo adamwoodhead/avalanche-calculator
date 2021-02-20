@@ -36,11 +36,26 @@ class DebtModal extends Component
     }
 
     protected $listeners = [
-        'assignDebtToEdit' => 'assign'
+        'assignDebtToEdit' => 'assign',
+        'assignDebtToCreate' => 'assign_create'
     ];
 
-    public function assign(Debt $debt){
-        $this->debt = $debt;
+    public function assign(Debt $debt = null){
+        try {
+            if($debt == null){
+                $this->debt = new Debt;
+            }
+            else {
+                $this->debt = $debt;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    public function assign_create(){
+        $this->debt = new Debt;
+        $this->show_modal = true;
     }
 
     public function updated($property){
@@ -65,6 +80,7 @@ class DebtModal extends Component
 
         $this->show_modal = false;
         $this->emit('rerenderDebtRow');
+        $this->emit('rerenderDebtsSection');
     }
 
     public function mount(){

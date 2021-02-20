@@ -15,7 +15,7 @@
             <div class="flex-1">
             </div>
         </div>
-        <livewire:debt-form-modal/>
+        <livewire:debt-modal/>
         <hr>
         <div class="w-full">
             <button wire:click="calculate" class="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-black font-semibold py-2 px-4 rounded">

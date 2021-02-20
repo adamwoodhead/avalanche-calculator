@@ -13,8 +13,10 @@ class DebtRow extends Component
     ];
 
     public function edit(){
-        $this->emit('assignDebtToEdit', $this->debt->id);
-        $this->dispatchBrowserEvent('debt-modal-show');
+        if($this->debt->exists){
+            $this->emit('assignDebtToEdit', $this->debt->id);
+            $this->dispatchBrowserEvent('debt-modal-show');
+        }
     }
 
     public function delete(){
