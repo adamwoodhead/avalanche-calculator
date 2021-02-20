@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-        <div class="bg-white p-4 sm:w-1/4">
+        <div class="bg-white p-4 sm:w-1/4 shadow-md rounded-md">
             <h2 class="text-lg font-semibold mb-4">Contacting US</h2>
             <div class="flex flex-col space-y-2">
                 <p>Please keep in mind that we don't offer financial advice, nor can we offer financial advice through email.</p>

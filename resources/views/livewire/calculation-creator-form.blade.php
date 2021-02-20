@@ -1,4 +1,4 @@
-<div class="w-full bg-white rounded-md p-4" x-show="open">
+<div class="w-full bg-white rounded-md p-4 shadow-md" x-show="open">
     <h2 class="flex-1 text-lg font-semibold">Calculation Wizard</h2>
     <div class="w-full mt-4 flex flex-col space-y-4">
         <div class="w-full">
