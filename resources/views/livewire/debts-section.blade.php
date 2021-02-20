@@ -1,6 +1,6 @@
-<div >
+<div class="flex-col space-y-8" wire:poll>
     <button wire:click="create" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
-        Create Debt
+        New Debt
     </button>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -19,10 +19,7 @@
                                     Balance
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
-                                </th>
-                                <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Delete</span>
+                                    <span class="sr-only">Edit/Delete</span>
                                 </th>
                             </tr>
                         </thead>

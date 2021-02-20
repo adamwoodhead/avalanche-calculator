@@ -21,6 +21,7 @@ class DeleteDebtModal extends Component
     public function delete(){
         $this->debt->delete();
         $this->emit('rerenderDebtsSection');
+        $this->emit('debtModalRefresh');
     }
 
     public function mount(){

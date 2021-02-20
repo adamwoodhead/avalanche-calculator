@@ -20,8 +20,10 @@ class DebtRow extends Component
     }
 
     public function delete(){
-        $this->emit('assignDebtToDelete', $this->debt->id);
-        $this->dispatchBrowserEvent('delete-debt-modal-show');
+        if($this->debt->exists){
+            $this->emit('assignDebtToDelete', $this->debt->id);
+            $this->dispatchBrowserEvent('delete-debt-modal-show');
+        }
     }
 
     public function render()

@@ -15,6 +15,7 @@ class DebtModal extends Component
     public function rules(){
         return [
             'debt.name' => 'required',
+            'debt.description' => '',
             'debt.debt_type' => 'required',
             'debt.opening_balance' => 'required|between:1,100000',
             'debt.interest_rate' => 'required',
@@ -37,7 +38,8 @@ class DebtModal extends Component
 
     protected $listeners = [
         'assignDebtToEdit' => 'assign',
-        'assignDebtToCreate' => 'assign_create'
+        'assignDebtToCreate' => 'assign_create',
+        'debtModalRefresh' => '$refresh'
     ];
 
     public function assign(Debt $debt = null){

@@ -45,17 +45,24 @@
                         </h3>
                         <div class="mt-2">
                             <form class="w-full mt-4 flex flex-col space-y-4" wire:submit.prevent="submit">
+                                <div class="flex-1">
+                                    <label class="block text-gray-700 font-semibold">
+                                        Short Description
+                                    </label>
+                                    <input wire:model="debt.description" id="description" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white" type="text" placeholder="This debt was for my car.">
+                                    @error('debt.description') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
+                                </div>
                                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0">
                                     <div class="flex-1">
                                         <label class="block text-gray-700 font-semibold">
-                                            Debt Name
+                                            Debt Name <span class="text-red-500 text-sm">*</span>
                                         </label>
                                         <input wire:model="debt.name" id="name" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white" type="text" placeholder="Big Bad Bank">
                                         @error('debt.name') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="flex-1">
                                         <label class="block text-gray-700 font-semibold">
-                                            Type Of Debt
+                                            Type Of Debt <span class="text-red-500 text-sm">*</span>
                                         </label>
                                         <div class="col-span-6 sm:col-span-3">
                                             <select wire:model="debt.debt_type" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white">
@@ -70,7 +77,7 @@
                                     </div>
                                     <div class="flex-1">
                                         <label class="block text-gray-700 font-semibold">
-                                            Opening Balance
+                                            Opening Balance <span class="text-red-500 text-sm">*</span>
                                         </label>
                                         <input wire:model="debt.opening_balance" id="opening_balance" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="2500">
                                         @error('debt.opening_balance') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
@@ -79,7 +86,7 @@
                                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0">
                                     <div class="flex-1">
                                         <label class="block text-gray-700 font-semibold">
-                                            Interest Rate (APR)
+                                            Interest Rate (APR) <span class="text-red-500 text-sm">*</span>
                                         </label>
                                         <input wire:model="debt.interest_rate" id="interest_rate" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="25">
                                         @error('debt.interest_rate') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
@@ -99,7 +106,7 @@
                                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0">
                                     <div class="flex-1">
                                         <label class="block text-gray-700 font-semibold">
-                                            Minimum Payment Fixed
+                                            Minimum Payment Fixed <span class="text-red-500 text-sm">*</span>
                                         </label>
                                         <input wire:model="debt.min_payment_fixed" id="min_payment_fixed" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="25">
                                         @error('debt.min_payment_fixed') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
