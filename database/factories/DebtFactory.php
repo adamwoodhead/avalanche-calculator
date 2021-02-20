@@ -22,7 +22,7 @@ class DebtFactory extends Factory
     public function definition()
     {
         return [
-            'debt_collection_id' => $this->faker->biasedNumberBetween(1, 3),
+            'user_id' => 1,
 
             'name' => $this->faker->company,
             'description' => null,

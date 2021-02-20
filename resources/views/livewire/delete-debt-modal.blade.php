@@ -1,5 +1,5 @@
 <div x-data="{ open: false }" 
-    @delete-modal-show.window="open = true"
+    @delete-debt-modal-show.window="open = true"
     x-init="
     $watch('open', value => {
     if (value === true) { document.body.classList.add('overflow-hidden') }
@@ -50,7 +50,7 @@
                         </h3>
                         <div class="mt-2">
                             <p class="text-sm text-gray-500">
-                            {{ $description }}
+                            Are you sure you want to delete the debt "{{ $debt->name ?? '' }}"?
                             </p>
                         </div>
                     </div>

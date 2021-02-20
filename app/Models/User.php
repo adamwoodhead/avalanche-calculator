@@ -72,7 +72,7 @@ class User extends Authenticatable
         return ucfirst(end($names));
     }
 
-    public function debt_collections(){
-        return $this->hasMany(DebtCollection::class);
+    public function debts(){
+        return $this->hasMany(Debt::class);
     }
 }
