@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class DebtForm extends Component
+class DebtFormModal extends Component
 {
     public $name;
     public $debt_type;
