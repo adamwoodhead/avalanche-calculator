@@ -16,6 +16,11 @@ class DebtCollectionCard extends Component
         $this->dispatchBrowserEvent('delete-modal-show');
     }
 
+    public function create_debt(){
+        $this->emit('assignCollectionForDebt', $this->collection->id);
+        $this->dispatchBrowserEvent('create-debt-modal-show');
+    }
+
     public function delete_confirm(){
         $this->collection->delete();
         $this->emit('rerenderDebtCollectionSection');

@@ -49,6 +49,9 @@
 
     <div class="flex flex-row-reverse mt-4">
         <div class="items-center">
+            <button wire:click="create_debt({{ $collection->id }})" class="bg-red-600 hover:bg-red-700 w-48 text-white rounded-md py-1 px-2">Create Debt</button>
+        </div>
+        <div class="items-center">
             <button wire:click="delete" class="bg-red-600 hover:bg-red-700 w-48 text-white rounded-md py-1 px-2">Delete Collection</button>
         </div>
     </div>

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'show'])->name('dashboard.show');
 
-Route::prefix('debts')->name('debts.')->group(function () {
+Route::prefix('debts')->name('debts.')->middleware('auth:web')->group(function () {
     Route::get('/', [DebtsController::class, 'show'])->name('show');
 });
 

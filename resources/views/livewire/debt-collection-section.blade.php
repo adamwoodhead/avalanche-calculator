@@ -11,5 +11,6 @@
     </div>
 </div>
 @push('modals')
-    <livewire:delete-collection-modal title="Delete Collection" description="Are you sure you want to delete this collection? All of the related data will be deleted permanently."/>
+<livewire:delete-collection-modal title="Delete Collection" description="Are you sure you want to delete this collection? All of the related data will be deleted permanently."/>
+<livewire:user-debt-wizard-modal title="Delete Collection"/>
 @endpush
