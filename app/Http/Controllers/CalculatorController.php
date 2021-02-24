@@ -66,7 +66,9 @@ class CalculatorController extends Controller
             $results = $calculation->calculate(CalculationMode::SNOWBALL);
         }
 
-        return View::make('calculators.results.avalanche', [
+        //dd($results);
+
+        return View::make('calculators.results.snowball', [
             'user' => Auth::check() ? Auth::user() : null,
             'results' => $results
         ]);
