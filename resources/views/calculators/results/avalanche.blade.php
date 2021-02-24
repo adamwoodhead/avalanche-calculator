@@ -36,14 +36,17 @@
                 <button type="button" class="w-full px-8 py-4 text-left" @click="selected !== {{ $loop->iteration }} ? selected = {{ $loop->iteration }} : selected = null">
                     <div class="flex flex-row items-center">
                         <div class="flex-1 flex flex-row items-center">
-                            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg x-show="selected !== {{ $loop->iteration }}" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                            </svg>
+                            <svg x-show="selected === {{ $loop->iteration }}" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                             </svg>
                             <span class="ml-6">{{ $month['month'] }}</span>
                         </div>
-                        <div class="flex-1 text-center">£{{ round($month["accruedinterest"], 2) }}</div>
-                        <div class="flex-1 text-center">£{{ round($month["total"], 2) }}</div>
-                        <div class="flex-1 text-right">£{{ round(array_sum(array_column($month["payments"], "balance")), 2) }}</div>
+                        <div class="flex-1 text-center">£{{ number_format($month["accruedinterest"], 2) }}</div>
+                        <div class="flex-1 text-center">£{{ number_format($month["total"], 2) }}</div>
+                        <div class="flex-1 text-right">£{{ number_format(array_sum(array_column($month["payments"], "balance")), 2) }}</div>
                     </div>
                 </button>
        
@@ -115,7 +118,7 @@
                         label: "{{ $key }}",
                         data: [
                             @foreach($value as $balance)
-                                {{ $balance }},
+                                {{ round($balance, 2) }},
                             @endforeach
                         ],
                         fill: "false",
