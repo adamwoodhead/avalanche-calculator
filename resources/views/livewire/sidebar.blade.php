@@ -2,8 +2,8 @@
     <div class="flex flex-col w-full sm:w-72 text-gray-700 bg-white min-h-screen">
         <a href="{{ route('dashboard.show') }}">
             <div class="flex-shrink-0 px-8 py-4 flex flex-col items-center justify-between">
-                <img src="/img/snowball.png" width="100%" alt="Avalanche Calculator"/>
-                <span class="text-lg mt-4 text-center font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Avalanche Calculator</span>
+                {{-- <img src="/img/snowball.png" width="100%" alt="Avalanche Calculator"/> --}}
+                <span class="text-lg mt-4 text-center font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Service Manager</span>
             </div>
         </a>
         <nav :class="{'block': open_1, 'hidden': !open_1, 'block': open_2, 'hidden': !open_2}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto space-y-2">

@@ -6,12 +6,12 @@ use App\Enums\DebtType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Debt extends Model
+class CalculationDebt extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'calculation_id',
 
         'name',
         'description',
@@ -34,7 +34,7 @@ class Debt extends Model
         'sl_can_overpay',
 
         'll_can_overpay',
-    ];
+    ]; 
 
     public function getDebtTypeTextAttribute(){
         switch($this->debt_type){
@@ -51,9 +51,14 @@ class Debt extends Model
             default:
                 return 'Invalid';
         }
+        
+    }
+
+    public function calculation(){
+        return $this->belongsTo(Calculation::class);
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->calculation()->user();
     }
 }
