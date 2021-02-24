@@ -37,19 +37,19 @@
        
                 <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container{{ $loop->iteration }}" x-bind:style="selected == {{ $loop->iteration }} ? 'max-height: ' + $refs.container{{ $loop->iteration }}.scrollHeight + 'px' : ''">
                     <div class="p-6 bg-gray-200">
-                        <span class="font-bold">Debt Paid: </span>£{{ round($month["total"], 2) }}<br/>
-                        <span class="font-bold">Combined Interest: </span>£{{ round($month["accruedinterest"], 2) }}<br/>
-                        <span class="font-bold">Closing Debt Balance: </span>£{{ round(array_sum(array_column($month["payments"], "balance")), 2) }}
+                        <span class="font-bold">Debt Paid: </span>£{{ number_format($month["total"], 2) }}<br/>
+                        <span class="font-bold">Combined Interest: </span>£{{ number_format($month["accruedinterest"], 2) }}<br/>
+                        <span class="font-bold">Closing Debt Balance: </span>£{{ number_format(array_sum(array_column($month["payments"], "balance")), 2) }}
                         <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                             @foreach($month['payments'] as $payment)
                             <div class="bg-green-600 shadow-xs hover:shadow-md p-6">
                                 <div class="text-white relative">
                                     <h4 class="text-lg truncate mb-2">{{ $payment["name"] }}</h4>
-                                    <p class="truncate">Opening Balance: £{{ round(($payment["balance"] + $payment["payment"] > 0 ? $payment["balance"] + $payment["payment"] : 0), 2) }}</p>
-                                    <p class="truncate">Closing Balance: £{{ round(($payment["balance"] > 0 ? $payment["balance"] : 0), 2) }}</p>
-                                    <p class="truncate">Payment: £{{ round(($payment["payment"] > 0 ? $payment["payment"] : 0), 2) }}</p>
-                                    <p class="truncate">Charge: £{{ round(($payment["charge"] > 0 ? $payment["charge"] : 0), 2) }}</p>
-                                    <p class="truncate">Interest: £{{ round(($payment["interest"] > 0 ? $payment["interest"] : 0), 2) }}</p>
+                                    <p class="truncate">Opening Balance: £{{ number_format(($payment["balance"] + $payment["payment"] > 0 ? $payment["balance"] + $payment["payment"] : 0), 2) }}</p>
+                                    <p class="truncate">Closing Balance: £{{ number_format(($payment["balance"] > 0 ? $payment["balance"] : 0), 2) }}</p>
+                                    <p class="truncate">Payment: £{{ number_format(($payment["payment"] > 0 ? $payment["payment"] : 0), 2) }}</p>
+                                    <p class="truncate">Charge: £{{ number_format(($payment["charge"] > 0 ? $payment["charge"] : 0), 2) }}</p>
+                                    <p class="truncate">Interest: £{{ number_format(($payment["interest"] > 0 ? $payment["interest"] : 0), 2) }}</p>
                                     <div class="absolute w-0.5 h-full right-1 top-0">
                                         <div class="bg-gray-600"style="height: calc({{ $payment["percent_paid"] * 100 }}%);"></div>
                                         <div class="bg-yellow-600"style="height: calc({{ $payment["percent_remaining"] * 100 }}%);"></div>
