@@ -19,6 +19,18 @@
     {{-- Monthly Payments --}}
     <div class="bg-white max-w-7xl mx-auto border border-gray-200" x-data="{selected: 1}">
         <ul class="shadow-box">
+            <li class="relative border-b border-gray-200">
+                <div class="w-full px-8 py-4 text-left">
+                    <div class="flex flex-row items-center font-bold">
+                        <div class="flex-1 flex flex-row items-center">
+                            <span class="ml-10">Month</span>
+                        </div>
+                        <div class="flex-1 text-center">Interest</div>
+                        <div class="flex-1 text-center">Total Paid</div>
+                        <div class="flex-1 text-right">Remaining Debt</div>
+                    </div>
+                </div>
+            </li>
             @foreach($results['months'] as $month)
             <li class="relative border-b border-gray-200">
                 <button type="button" class="w-full px-8 py-4 text-left" @click="selected !== {{ $loop->iteration }} ? selected = {{ $loop->iteration }} : selected = null">
