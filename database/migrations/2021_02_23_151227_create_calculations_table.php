@@ -16,13 +16,13 @@ class CreateCalculationsTable extends Migration
         Schema::create('calculations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
 
-            $table->string('description');
+            $table->string('description')->nullable();
 
             $table->double('budget');
 
-            $table->string('access_token');
+            $table->string('access_token')->nullable();
 
             $table->timestamps();
         });
