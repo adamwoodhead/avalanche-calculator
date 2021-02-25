@@ -7,18 +7,58 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     @endpush
     {{-- Avalanche Summary --}}
-
-    {{-- Responsive Chart --}}
     <div class="bg-white max-w-7xl mx-auto border border-gray-200 p-4">
-        <canvas class="hidden sm:block" id="debtChart" width="auto" height="auto"></canvas>
-        <p class="block sm:hidden">Want to see a visualization of your debts? Tilt your phone to the side!</p>
+        <h2 class="text-lg font-semibold">Debt Avalanche Calculation</h2>
+        <p>Some nice text...</p>
     </div>
 
-    {{-- Pay Off Summary --}}
+    {{-- Responsive Chart --}}
+    <div class="hidden sm:block bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+        <canvas id="debtChart" width="auto" height="auto"></canvas>
+    </div>
+    <div class="block sm:hidden bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+        <p>Want to see a visualization of your debts? Tilt your phone to the side!</p>
+    </div>
+
+    <div class="flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+        {{-- Pay Off Summary --}}
+        <div class="bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+            <h2 class="text-lg font-semibold">Debt Overview</h2>
+            <p>If you follow through with the plan below, you <span class="font-semibold">should</span> clear your debts in the next <span class="font-semibold">{{ count($results['months']) }}</span> months, finishing in {{ end($results['months'])["month"] }}. You'll be paying a total of £{{ array_sum(array_column($results['months'], "total")) }} which includes a total interest of £{{ array_sum(array_column($results['months'], "accruedinterest")) }}.</p>
+            <p>If you stick to your budget, these are your projected pay-off dates:</p>
+            <div class="flex flex-row mt-4">
+                <span class="flex-1 font-bold">Debt</span>
+                <span class="flex-1 font-bold text-center">Date</span>
+                <span class="flex-1 font-bold text-center">Overall Total Paid</span>
+                <span class="flex-1 font-bold text-right">Debt Total</span>
+            </div>
+            <div class="flex flex-col">
+                @foreach($results['pay_off_dates'] as &$pay_off_date)
+                <div class="flex flex-row hover:bg-gray-200 cursor-default">
+                    <span class="flex-1">{{ $pay_off_date['debt'] }}</span>
+                    <span class="flex-1 text-center">{{ $pay_off_date['date'] }}</span>
+                    <span class="flex-1 text-center">£{{ number_format($pay_off_date['paid'], 2) }}</span>
+                    <span class="flex-1 text-right">£{{ number_format($pay_off_date['balance'], 2) }} </span>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    
+        {{-- Switch Methods --}}
+        <div class="bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+            <h2 class="text-lg font-semibold">Recalculate</h2>
+            <p>These are your results using the <span class="font-semibold">Avalanche</span> method.<br/>
+                You can quickly switch to the Snowball method if you'd like to see a different style of paying off debt!</p>
+            <button type="button" class="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white" href="#!">
+                <span class="hidden sm:block">Click here to see your results using the Snowball method!</span>
+                <span class="block sm:hidden">Recalculate in the Snowball Calculator</span>
+            </button>
+        </div>
+    </div>
 
     {{-- Monthly Payments --}}
     <div class="bg-white max-w-7xl mx-auto border border-gray-200" x-data="{selected: 1}">
-        <ul class="shadow-box">
+        <ul>
             <li class="relative border-b border-gray-200">
                 <div class="w-full px-8 py-4 text-left">
                     <div class="flex flex-row items-center font-bold">
