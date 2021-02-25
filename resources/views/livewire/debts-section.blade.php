@@ -1,4 +1,4 @@
-<div class="flex-col space-y-8" wire:poll>
+<div class="flex-col space-y-8">
     <button wire:click="create" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
         New Debt
     </button>
@@ -25,7 +25,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @foreach($debts as $debt)
-                        <livewire:debt-row :debt="$debt" :key="$debt->id"/>
+                        <livewire:debt-row :debt="$debt" :key="'debt-row-'.$debt->id"/>
                         @endforeach
                         </tbody>
                     </table>
