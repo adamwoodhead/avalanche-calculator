@@ -40,5 +40,13 @@
         @stack('finalscripts')
 
         @livewireScripts
+
+        <script type="text/javascript">
+            var debugLogs = 0;
+            Livewire.on('debugLog', message => {
+                debugLogs++;
+                console.log(debugLogs + ': ' + message);
+            });
+        </script>
     </body>
 </html>
