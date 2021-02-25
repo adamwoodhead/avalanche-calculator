@@ -41,6 +41,7 @@ class CalculatorController extends Controller
         //dd($results);
 
         return View::make('calculators.results.avalanche', [
+            'calculation' => $calculation,
             'user' => Auth::check() ? Auth::user() : null,
             'results' => $results
         ]);
@@ -69,6 +70,7 @@ class CalculatorController extends Controller
         //dd($results);
 
         return View::make('calculators.results.snowball', [
+            'calculation' => $calculation,
             'user' => Auth::check() ? Auth::user() : null,
             'results' => $results
         ]);
