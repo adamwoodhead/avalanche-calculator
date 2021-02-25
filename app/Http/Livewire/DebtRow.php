@@ -15,7 +15,6 @@ class DebtRow extends Component
     public function edit(){
         if($this->debt->exists){
             $this->emit('assignDebtToEdit', $this->debt->id);
-            $this->dispatchBrowserEvent('debt-modal-show');
         }
     }
 
