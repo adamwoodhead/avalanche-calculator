@@ -1,4 +1,4 @@
-## About Laravel
+## About Avalanche Calculator
 
 Avalanche Calculator (despite the name), is a collection of self-help tools for debt, with the main focus being on the Avalanche & Snowball Forecast Calculations. There are a few guidelines that I intend to follow:
 
