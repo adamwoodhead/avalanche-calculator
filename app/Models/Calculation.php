@@ -71,16 +71,9 @@ class Calculation extends Model
                 if($debt["debt_type"] === DebtType::BALANCE_TRANSFER){
                     // Balance Transfer
                     if($debt["bt_free_period"] > 0){
-                        if(!isset($debt['saved_interest_rate'])){
-                            $debt['saved_interest_rate'] = $debt['interest_rate'];
-                            $debt['interest_rate'] = 0;
-                        }
                         $debt["bt_free_period"]--;
                     } else {
-                        if(isset($debt['saved_interest_rate'])){
-                            $debt['interest_rate'] = $debt['saved_interest_rate'];
-                            unset($debt['saved_interest_rate']);
-                        }
+                        $debt['interest_rate'] = $debt['bt_interest_post'];
                     }
                 }
             }
