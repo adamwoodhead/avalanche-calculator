@@ -52,7 +52,10 @@ class Calculation extends Model
         $chartKeys = ["Now"];
 
         $maxMonths = 420; // 35 Years
-    // Cycle Monthly Payments
+
+        $thirtyFiveYearWarning = false;
+
+        // Cycle Monthly Payments
         while($maxMonths > 0 && !$this->allDebtsAreZeroBalance($debts)){
             $maxMonths--;
             $budget = $this->budget;
@@ -194,18 +197,14 @@ class Calculation extends Model
             $thirtyFiveYearWarning = true;
         }
 
-        if(isset($access_token)){
-            $last_pay_off_date = Array(
-                'date' => end($pay_off_dates)['date'],
-                'months' => count($months)
-            );
-        }
+        // ! TODO Add Thirty Five Year Warning to view
 
         return [
             'months' => $months,
             'pay_off_dates' => $pay_off_dates,
             'chart_keys' => $chartKeys,
-            'chart_data' => $chartData
+            'chart_data' => $chartData,
+            'thirtyFiveYearWarning' => $thirtyFiveYearWarning
         ];
     }
 
