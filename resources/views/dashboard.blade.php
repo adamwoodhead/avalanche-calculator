@@ -7,8 +7,8 @@
                 <div class="bg-green-600 text-white border border-solid border-gray-200 hover:bg-green-700 p-6 shadow-sm">
                     <a href="{{ route('calculator.avalanche.show') }}">
                         <div class="flex flex-col gap-y-3 text-center">
-                            <h3 class="text-lg font-semibold">Avalanche Calculator</h3>
-                            <p class="font-bold">Perceived as the most efficient way to tackle debt.</p>
+                            <h3 class="text-lg font-bold">Avalanche Calculator</h3>
+                            <p class="font-semibold">Perceived as the most efficient way to tackle debt.</p>
                             <ul class="list-disc list-inside text-left mx-auto">
                                 <li>Highly Efficient</li>
                                 <li>Pay Less Overall</li>
@@ -22,8 +22,8 @@
                 <div class="bg-green-600 text-white border border-solid border-gray-200 hover:bg-green-700 p-6 shadow-sm">
                     <a href="{{ route('calculator.snowball.show') }}">
                         <div class="flex flex-col gap-y-3 text-center">
-                            <h3 class="text-lg font-semibold">Snowball Calculator</h3>
-                            <p class="font-bold">The most popular method of tackling personal debt.</p>
+                            <h3 class="text-lg font-bold">Snowball Calculator</h3>
+                            <p class="font-semibold">The most popular method of tackling personal debt.</p>
                             <ul class="list-disc list-inside text-left mx-auto">
                                 <li>Highly Motivating</li>
                                 <li>Mentally Rewarding</li>
