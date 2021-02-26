@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Debt;
+use App\Models\CalculationDebt;
 use Livewire\Component;
 
-class DeleteDebtModal extends Component
+class CalculationDeleteDebtModal extends Component
 {
     public $title;
     public $description;
@@ -14,14 +14,13 @@ class DeleteDebtModal extends Component
 
     protected $listeners = ['assignDebtToDelete' => 'assign'];
 
-    public function assign(Debt $model){
+    public function assign(CalculationDebt $model){
         $this->debt = $model;
     }
 
     public function delete(){
         $this->debt->delete();
         $this->emit('rerenderDebtsSection');
-        $this->emit('debtModalRefresh');
     }
 
     public function mount(){

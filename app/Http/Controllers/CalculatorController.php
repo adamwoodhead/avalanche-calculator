@@ -6,30 +6,60 @@ use App\Enums\CalculationMode;
 use App\Models\Calculation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
 class CalculatorController extends Controller
 {
-    public function avalanche(){
-        return View::make('calculators.avalanche');
+    public function avalanche()
+    {
+        $calculation = null;
+
+        if (session()->has('temp_calculation')) {
+            $calculation_id = session('temp_calculation');
+            $calculation = Calculation::find($calculation_id) ?? Calculation::create();
+        } else {
+            $calculation = Calculation::create();
+        }
+
+        session(['temp_calculation' => $calculation->id]);
+        
+        return View::make('calculators.avalanche', [
+            'calculation' => $calculation
+        ]);
     }
     
-    public function snowball(){
-        return View::make('calculators.snowball');
+    public function snowball()
+    {
+        $calculation = null;
+
+        if (session()->has('temp_calculation')) {
+            $calculation_id = session('temp_calculation');
+            $calculation = Calculation::find($calculation_id) ?? Calculation::create();
+        } else {
+            $calculation = Calculation::create();
+        }
+
+        session(['temp_calculation' => $calculation->id]);
+
+        return View::make('calculators.snowball', [
+            'calculation' => $calculation
+        ]);
     }
 
-    public function avalanche_results(Request $request){
+    public function avalanche_results(Request $request)
+    {
         // Determine Calculation Data
+
         $calculation = null;
 
         if ($request->isMethod('get')) {
             if($request->has('secret')){
                 $accessToken = preg_replace("/[^a-zA-Z0-9]+/", "", $request->secret);
                 $calculation = Calculation::with('calculationDebts')->where('access_token', '=', $accessToken)->first();
-            }
-        } else if ($request->isMethod('post')) {
-            if($request->has('calculation')){
-                $calculation = $request->calculation;
+            } else if (session()->has('temp_calculation')) {
+                $calculation_id = session('temp_calculation');
+                $calculation = Calculation::find($calculation_id);
             }
         }
 
@@ -47,18 +77,19 @@ class CalculatorController extends Controller
         ]);
     }
 
-    public function snowball_results(Request $request){
+    public function snowball_results(Request $request)
+    {
         // Determine Calculation Data
+
         $calculation = null;
 
         if ($request->isMethod('get')) {
             if($request->has('secret')){
                 $accessToken = preg_replace("/[^a-zA-Z0-9]+/", "", $request->secret);
                 $calculation = Calculation::with('calculationDebts')->where('access_token', '=', $accessToken)->first();
-            }
-        } else if ($request->isMethod('post')) {
-            if($request->has('calculation')){
-                $calculation = $request->calculation;
+            } else if (session()->has('temp_calculation')) {
+                $calculation_id = session('temp_calculation');
+                $calculation = Calculation::find($calculation_id);
             }
         }
 

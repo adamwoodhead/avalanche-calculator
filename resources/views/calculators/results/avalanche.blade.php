@@ -49,10 +49,10 @@
             <h2 class="text-lg font-semibold">Recalculate</h2>
             <p>These are your results using the <span class="font-semibold">Avalanche</span> method.<br/>
                 You can quickly switch to the Snowball method if you'd like to see a different style of paying off debt!</p>
-            <button type="button" class="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white" href="#!">
+            <a href="{{ route('calculator.results.snowball.show') }}" type="button" class="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white" href="#!">
                 <span class="hidden sm:block">Click here to see your results using the Snowball method!</span>
                 <span class="block sm:hidden">Recalculate in the Snowball Calculator</span>
-            </button>
+            </a>
         </div>
     </div>
 

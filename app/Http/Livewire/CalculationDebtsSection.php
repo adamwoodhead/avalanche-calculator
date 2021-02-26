@@ -2,26 +2,33 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Debt;
+use App\Models\CalculationDebt;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class DebtsSection extends Component
+class CalculationDebtsSection extends Component
 {
+    public $calculation;
     public $debts;
 
     protected $listeners = [
         'rerenderDebtsSection' => '$refresh',
     ];
 
-    public function create(){
-        $debt = new Debt;
+    protected $rules = [
+        'calculation.budget' => 'required'
+    ];
 
-        $this->emit('assignDebtToCreate');
+    public function updated()
+    {
+        $this->validate();
+
+        $this->calculation->save();
     }
 
     public function mount(){
-        
+
+        $this->debts = $this->calculation->calculationDebts;
     }
 
     public function render()

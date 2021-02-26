@@ -1,5 +1,13 @@
-<div class="flex-col space-y-8" wire:poll>
-    <button wire:click="create" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
+<div class="flex-col space-y-8">
+    <div class="w-full">
+        <label class="block text-gray-700 font-semibold">
+            Budget
+        </label>
+        <input wire:model="calculation.budget" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="400">
+        @error('calculation.budget') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
+        <p class="text-gray-600 text-xs italic">The amount you can afford to pay each month, for all debts.</p>
+    </div>
+    <button wire:click="$emit('assignDebtToCreate')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
         New Debt
     </button>
     <div class="flex flex-col">
@@ -24,8 +32,8 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach($debts as $debt)
-                        <livewire:debt-row :debt="$debt" :key="$debt->id"/>
+                        @foreach($calculation->calculationDebts as $debt)
+                        <livewire:calculation-debt-row :debt="$debt" :key="'debt-row-'.$debt->id"/>
                         @endforeach
                         </tbody>
                     </table>

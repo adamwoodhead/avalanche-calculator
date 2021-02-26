@@ -20,7 +20,7 @@ class CreateCalculationsTable extends Migration
 
             $table->string('description')->nullable();
 
-            $table->double('budget');
+            $table->double('budget')->nullable();
 
             $table->string('access_token')->nullable();
 

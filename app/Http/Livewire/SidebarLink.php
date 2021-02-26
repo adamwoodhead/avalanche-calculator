@@ -15,7 +15,7 @@ class SidebarLink extends Component
     public function mount()
     {
         if(Route::currentRouteName() == $this->route){
-            $this->background = "bg-green-500";
+            $this->background = "bg-green-600";
             $this->foreground = "text-white";
         }
     }

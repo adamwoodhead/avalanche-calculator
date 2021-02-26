@@ -31,9 +31,7 @@ Route::prefix('calculate')->name('calculator.')->group(function () {
 
     Route::prefix('results')->name('results.')->group(function () {
         Route::get('avalanche', [CalculatorController::class, 'avalanche_results'])->name('avalanche.show');
-        Route::post('avalanche', [CalculatorController::class, 'avalanche_results'])->name('avalanche.post');
         Route::get('snowball', [CalculatorController::class, 'snowball_results'])->name('snowball.show');
-        Route::post('snowball', [CalculatorController::class, 'snowball_results'])->name('snowball.post');
     });
 });
 

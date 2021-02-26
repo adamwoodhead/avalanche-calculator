@@ -2,13 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Debt;
+use App\Enums\DebtType;
+use App\Models\CalculationDebt;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class DebtModal extends Component
+class CalculationDebtModal extends Component
 {
     public $debt;
+    public $calculation;
 
     public $show_modal;
 
@@ -17,80 +19,68 @@ class DebtModal extends Component
             'debt.name' => 'required',
             'debt.description' => '',
             'debt.debt_type' => 'required',
-            'debt.opening_balance' => 'required|between:1,100000',
+            'debt.opening_balance' => 'required|between:1,1000000',
             'debt.interest_rate' => 'required',
             'debt.monthly_charge' => 'required',
     
             'debt.min_payment_fixed' => 'required',
             'debt.min_payment_percent' => 'required',
 
-            'debt.bt_free_period' => ($this->debt->debt_type == 20 ? 'required' : ''),
-            'debt.bt_interest_post' => ($this->debt->debt_type == 20 ? 'required' : ''),
+            'debt.bt_free_period' => ($this->debt->debt_type == DebtType::BALANCE_TRANSFER ? 'required' : ''),
+            'debt.bt_interest_post' => ($this->debt->debt_type == DebtType::BALANCE_TRANSFER ? 'required' : ''),
     
-            'debt.pc_free_period' => ($this->debt->debt_type == 30 ? 'required' : ''),
-            'debt.pc_amount_spent' => ($this->debt->debt_type == 30 ? 'required' : ''),
+            'debt.pc_free_period' => ($this->debt->debt_type == DebtType::PURCHASE ? 'required' : ''),
+            'debt.pc_amount_spent' => ($this->debt->debt_type == DebtType::PURCHASE ? 'required' : ''),
     
-            'debt.sl_can_overpay' => ($this->debt->debt_type == 40 ? 'required' : ''),
+            'debt.sl_can_overpay' => '',
     
-            'debt.ll_can_overpay' => ($this->debt->debt_type == 50 ? 'required' : ''),
+            'debt.ll_can_overpay' => '',
         ];
     }
 
     protected $listeners = [
         'assignDebtToEdit' => 'assign',
         'assignDebtToCreate' => 'assign_create',
-        'debtModalRefresh' => '$refresh'
     ];
-
-    public function assign(Debt $debt = null){
-        try {
-            if($debt == null){
-                $this->debt = new Debt;
-            }
-            else {
-                $this->debt = $debt;
-            }
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
-    }
-
-    public function assign_create(){
-        $this->debt = new Debt;
+    
+    public function assign(CalculationDebt $model)
+    {
+        $this->debt = $model;
         $this->show_modal = true;
     }
 
-    public function updated($property){
+    public function assign_create()
+    {
+        $this->debt = new CalculationDebt;
+        $this->show_modal = true;
+    }
+
+    public function updated($property)
+    {
+        $this->emit('debugLog', 'Updating Modal...');
         $this->validateOnly($property);
     }
 
-    public function save(){
+    public function save()
+    {
         $this->validate();
-        
-        if(Auth::check()){
-            // Auth
-            if($this->debt->exists == false){
-                $this->debt->user_id = Auth::user()->id;
-                $this->debt->save();
-            } else {
-                $this->debt->save();
-            }
-        } else {
-            // Guest
 
-        }
+        $this->debt->calculation_id = $this->calculation->id;
+        $this->debt->save();
 
         $this->show_modal = false;
         $this->emit('rerenderDebtRow');
         $this->emit('rerenderDebtsSection');
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->show_modal = false;
-        $this->debt = new Debt;
+        $this->debt = new CalculationDebt;
     }
 
-    public function render(){
+    public function render()
+    {
         return view('livewire.calculation-debt-modal');
     }
 }

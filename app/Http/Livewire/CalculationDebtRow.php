@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class DebtRow extends Component
+class CalculationDebtRow extends Component
 {
     public $debt;
 
@@ -15,7 +15,6 @@ class DebtRow extends Component
     public function edit(){
         if($this->debt->exists){
             $this->emit('assignDebtToEdit', $this->debt->id);
-            $this->dispatchBrowserEvent('debt-modal-show');
         }
     }
 
