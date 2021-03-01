@@ -57,8 +57,8 @@
             <div class="mt-8 text-gray-500">
                 <div class="flex flex-col">
                     @auth
-                        @if(Auth::user()->debt_collections()->count() == 0)
-                            <p>In the mean time why don't you try setting up some collections?</p>
+                        @if(Auth::user()->debts()->count() == 0)
+                            <p>In the mean time why don't you try setting up some debts?</p>
                             <a href="{{ route('debts.show') }}" class="flex-1 mt-4 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">View My Debts</a>
                         @else
                             <p>In the mean time why don't you try out one of our calculators?</p>
