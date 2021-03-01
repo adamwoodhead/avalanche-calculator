@@ -7,6 +7,10 @@
             </div>
         </a>
         <nav :class="{'block': open_1, 'hidden': !open_1, 'block': open_2, 'hidden': !open_2}" class="block px-4 pb-4 md:pb-0 md:overflow-y-auto space-y-2 relative">
+            @guest
+            <a class="block px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-md animate-pulse" href="{{ route('register') }}">Register</a>
+            <hr>
+            @endguest
             <livewire:sidebar-link title="Dashboard" route="dashboard.show"/>
             <livewire:sidebar-link title="Debts" route="debts.show"/>
             <div @click.away="open_1 = {{ $contains_calculate ? 'true' : 'false' }}" class="relative" x-data="{ open_1: {{ $contains_calculate ? 'true' : 'false' }} }">
@@ -36,14 +40,5 @@
             <livewire:sidebar-link title="Contact" route="contact.show"/>
             <livewire:sidebar-link title="About" route="about.show"/>
         </nav>
-        @guest
-        <div class="absolute bottom-0 w-full">
-            <nav class="block px-4 mb-4 md:pb-0">
-                <div class="flex flex-col-reverse space-y-2">
-                    <a class="block px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-md animate-pulse" href="{{ route('register') }}">Register</a>
-                </div>
-            </nav>
-        </div>
-        @endguest
     </div>
 </div>
