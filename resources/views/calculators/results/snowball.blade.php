@@ -35,10 +35,10 @@
             <div class="flex flex-col">
                 @foreach($results['pay_off_dates'] as &$pay_off_date)
                 <div class="flex flex-row hover:bg-gray-200 cursor-default">
-                    <span class="flex-1">{{ $pay_off_date['debt'] }}</span>
-                    <span class="flex-1 text-center">{{ $pay_off_date['date'] }}</span>
-                    <span class="flex-1 text-center">£{{ number_format($pay_off_date['paid'], 2) }}</span>
-                    <span class="flex-1 text-right">£{{ number_format($pay_off_date['balance'], 2) }} </span>
+                    <span class="flex-1 truncate">{{ $pay_off_date['debt'] }}</span>
+                    <span class="flex-1 text-center truncate">{{ $pay_off_date['date'] }}</span>
+                    <span class="flex-1 text-center truncate">£{{ number_format($pay_off_date['paid'], 2) }}</span>
+                    <span class="flex-1 text-right truncate">£{{ number_format($pay_off_date['balance'], 2) }} </span>
                 </div>
                 @endforeach
             </div>
