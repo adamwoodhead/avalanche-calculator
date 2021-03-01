@@ -1,1 +1,1 @@
-<a class="block px-4 py-2 text-sm font-semibold {{ $foreground }} {{ $background }} rounded-lg hover:text-white focus:text-white hover:bg-green-600"  href="{{ route($route) }}">{{ $title }}</a>
+<a class="block px-4 py-2 text-sm font-semibold {{ $foreground }} {{ $background }} rounded-md hover:text-white focus:text-white hover:bg-green-600"  href="{{ route($route) }}">{{ $title }}</a>
