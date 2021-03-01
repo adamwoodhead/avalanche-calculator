@@ -1,12 +1,12 @@
 <x-app-layout>
-    <div class="bg-white shadow-sm rounded-sm p-4">
+    <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <div class="flex flex-col gap-y-3">
             <h2 class="text-lg font-semibold">What is the Snowball Calculation?</h2>
             <p>The Debt Snowball Calculation is a method of paying off debt, in a manner that is mentally rewarding, and effective.</p>
             <p>The idea behind the Snowball method is to create a list of your debts, and then order them from the lowest balance - this order never changes, and you eliminate each debt consecutively, one after another.</p>    
         </div>
     </div>
-    <div class="bg-white shadow-sm rounded-sm p-4">
+    <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <div class="flex flex-col gap-y-3">
             <h2 class="text-lg font-semibold">A Snowball Example</h2>
             <p>Compared to the <a href="{{ route('calculator.avalanche.show') }}">Avalanche</a> example, the Snowball technique is incredibly simple.</p>

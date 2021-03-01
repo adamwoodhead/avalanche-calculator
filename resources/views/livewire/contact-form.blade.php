@@ -1,6 +1,6 @@
 <div class="min-h-full" x-data="{ open: @entangle('show_form') }">
     <div class="flex items-center">
-        <div class="w-full bg-white rounded-md p-4 shadow-md" x-show="open">
+        <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm w-full" x-show="open">
             <h2 class="flex-1 text-lg font-semibold">Contact Us</h2>
             <form class="w-full mt-4 flex flex-col space-y-4" wire:submit.prevent="submit">
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0">

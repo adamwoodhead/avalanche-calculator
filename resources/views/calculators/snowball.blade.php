@@ -1,11 +1,13 @@
 <x-app-layout>
-    <div class="bg-white p-4 shadow-md rounded-md">
-        <h2 class="text-lg font-semibold mb-4">Contacting US</h2>
+    <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
+        <h2 class="text-lg font-semibold mb-4">Snowball Method</h2>
         <div class="flex flex-col space-y-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices finibus quam, quis fringilla velit sollicitudin non. Morbi auctor elit a ex suscipit pellentesque. Etiam eu libero sagittis, fermentum erat nec, hendrerit lectus. Donec lobortis elementum porttitor. Aenean vitae leo ac augue pretium eleifend id vel ligula.</p>
+            <p>The Snowball method of paying off debt, is the most known method world-wide.</p>
+            <p>The purpose of the snowball is to eliminate lowest balance debts first, and work your way up to the highest balance debts <span class="font-semibold">linearly</span>. You typically <span class="font-semibold">do pay more interest</span> by using the snowball method, opposed to the <a href="{{ route('calculator.avalanche.show') }}">avalanche method</a>.</p>
+            <p>Whilst conquering your debt via the snowball method, you will <span class="font-semibold">feel</span> a quick relief after seeing your smaller debts disappear fast, which seriously helps with motivation to continue on.</p>
         </div>
     </div>
-    <div class="w-full bg-white rounded-md p-4 shadow-md" x-show="open">
+    <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm w-full" x-show="open">
         <h2 class="flex-1 text-lg font-semibold">Calculation Wizard</h2>
         <div class="w-full mt-4 flex flex-col space-y-4">
             <livewire:calculation-debts-section :calculation="$calculation" />

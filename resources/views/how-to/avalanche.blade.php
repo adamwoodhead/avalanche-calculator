@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-white shadow-sm rounded-sm p-4">
+    <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <div class="flex flex-col gap-y-3">
             <h2 class="text-lg font-semibold">What is the Avalanche Calculation?</h2>
             <p>Most people have heard of the Snowball Calculation when it comes to paying off debt, not so many have heard about the Debt Avalanche Calculation, which is <span class="bold">shocking!</span></p>
@@ -7,7 +7,7 @@
             <p>So how do we define one debt to be more costing, than another? We consider the <a href="/frequently-asked-questions/" class="tool-tipped" data-position="top" data-tooltip="What is an Interest Rate?">Interest Rate</a>, and any other charges that are applicable to the debt - also known as <a href="/frequently-asked-questions/" class="tool-tipped" data-position="top" data-tooltip="What is APR?">APR</a>.</p>
         </div>
     </div>
-    <div class="bg-white shadow-sm rounded-sm p-4">
+    <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <div class="flex flex-col gap-y-3">
             <h2 class="text-lg font-semibold">An Avalanche Example</h2>
             <p>Compared to the <a href="{{ route('calculator.avalanche.show') }}">Snowball</a> technique, the Snowball method is incredibly simple.</p>

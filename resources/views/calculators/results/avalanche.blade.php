@@ -13,10 +13,10 @@
     </div>
 
     {{-- Responsive Chart --}}
-    <div class="hidden sm:block bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+    <div class="hidden sm:block max-w-7xl mx-auto bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <canvas id="debtChart" width="auto" height="auto"></canvas>
     </div>
-    <div class="block sm:hidden bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+    <div class="block sm:hidden max-w-7xl mx-auto bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <p>Want to see a visualization of your debts? Tilt your phone to the side!</p>
     </div>
 
