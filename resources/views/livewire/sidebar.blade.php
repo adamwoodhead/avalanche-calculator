@@ -1,12 +1,12 @@
 <div class="hidden md:block sm:min-h-screen fixed border-r border-gray border-solid">
-    <div class="flex flex-col w-full sm:w-72 text-gray-700 bg-white min-h-screen">
+    <div class="flex flex-col w-full sm:w-72 text-gray-700 bg-white min-h-screen relative">
         <a href="{{ route('dashboard.show') }}">
             <div class="flex-shrink-0 px-8 py-4 flex flex-col items-center justify-between">
                 <img src="/img/snowball.png" width="100%" alt="Avalanche Calculator"/>
                 <span class="text-lg mt-4 text-center font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Avalanche Calculator</span>
             </div>
         </a>
-        <nav :class="{'block': open_1, 'hidden': !open_1, 'block': open_2, 'hidden': !open_2}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto space-y-2">
+        <nav :class="{'block': open_1, 'hidden': !open_1, 'block': open_2, 'hidden': !open_2}" class="block px-4 pb-4 md:pb-0 md:overflow-y-auto space-y-2 relative">
             <livewire:sidebar-link title="Dashboard" route="dashboard.show"/>
             <livewire:sidebar-link title="Debts" route="debts.show"/>
             <div @click.away="open_1 = {{ $contains_calculate ? 'true' : 'false' }}" class="relative" x-data="{ open_1: {{ $contains_calculate ? 'true' : 'false' }} }">
@@ -36,5 +36,14 @@
             <livewire:sidebar-link title="Contact" route="contact.show"/>
             <livewire:sidebar-link title="About" route="about.show"/>
         </nav>
+        @guest
+        <div class="absolute bottom-0 w-full">
+            <nav class="block px-4 mb-4 md:pb-0">
+                <div class="flex flex-col-reverse space-y-2">
+                    <a class="block px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-md animate-pulse" href="{{ route('register') }}">Register</a>
+                </div>
+            </nav>
+        </div>
+        @endguest
     </div>
 </div>
