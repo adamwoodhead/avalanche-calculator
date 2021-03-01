@@ -1,15 +1,28 @@
 <div class="flex-col space-y-8">
     <div class="w-full">
         <label class="block text-gray-700 font-semibold">
-            Budget
+            Monthly Budget
         </label>
         <input wire:model="calculation.budget" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="400">
         @error('calculation.budget') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
-        <p class="text-gray-600 text-xs italic">The amount you can afford to pay each month, for all debts.</p>
+        <p class="text-gray-600 text-xs italic">The amount you can afford to pay in total each month, for all debts combined.</p>
     </div>
-    <button wire:click="$emit('assignDebtToCreate')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
-        New Debt
-    </button>
+    <div class="flex flex-col space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
+        <button wire:click="$emit('assignDebtToCreate')" type="button" class="rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 sm:w-auto sm:text-sm">
+            New Debt
+        </button>
+        <div class="hidden sm:block border-r"></div>
+        @auth
+        <select wire:model="import_debt_id" class="block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 pl-4 pr-8 focus:outline-none focus:bg-white">
+            @foreach(Auth::user()->debts as $debt)
+            <option value="{{ $debt->id }}">{{ $debt->name }}</option>
+            @endforeach
+        </select>
+        @endauth
+        <button @auth wire:click="import" @else x-data="{}" @click="$dispatch('notice', {type: 'error', text: 'You need to be logged in for that!', cta: { link: '{{ route("register") }}', text: 'Register'} })" @endauth type="button" class="rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 sm:w-auto sm:text-sm">
+            Import Debt
+        </button>
+    </div>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
