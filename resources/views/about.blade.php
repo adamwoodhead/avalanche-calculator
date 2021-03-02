@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        Just a test
+    </x-slot>
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <h2 class="text-lg font-semibold mb-4">General Purpose</h2>
         <div class="flex flex-col space-y-2">
@@ -22,20 +25,20 @@
                 @foreach($commits as $commit)
                 <tr>
                     <td class="px-6 py-4">
-                        <div class="text-sm text-gray-900">{{ $commit['commit']['message'] }}</div>
-                        <div class="text-sm text-gray-500">{{ Carbon\Carbon::parse($commit['commit']['author']['date'])->format('d/m/Y') }}</div>
+                        <div class="text-sm text-gray-900">{{ $commit->message }}</div>
+                        <div class="text-sm text-gray-500">Changes: {{ $commit->changes }} | <span class="text-green-600">++{{ $commit->additions }}</span> | <span class="text-red-600">--{{ $commit->deletions }}</span></div>
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex flex-row-reverse">
                             <div class="ml-4 flex-shrink-0 h-10 w-10">
-                                <img class="h-10 w-10 rounded-full" src="{{ $commit['author']['avatar_url'] }}" alt="">
+                                <img class="h-10 w-10 rounded-full" src="{{ $commit->avatar_url }}" alt="">
                             </div>
                             <div class="text-right">
                                 <div class="text-sm font-medium text-gray-900">
-                                    {{ $commit['commit']['author']['name'] }}
+                                    {{ $commit->author }}
                                 </div>
                                 <div class="text-sm text-gray-500">
-                                    {{ Carbon\Carbon::parse($commit['commit']['author']['date'])->format('d/m/Y') }}
+                                    {{ $commit->date->format('F Y') }}
                                 </div>
                             </div>
                         </div>
@@ -45,18 +48,4 @@
              </tbody>
          </table>
      </div>
-    <div class="bg-white p-4">
-        <h2 class="text-lg font-semibold mb-4">Development Commits (Last 30)</h2>
-        <div class="flex flex-col space-y-4">
-            @foreach($commits as $commit)
-            <a class="flex flex-col bg-gray-100 p-2 rounded-md shadow-sm hover:bg-gray-200" target="_blank" href="{{ $commit['html_url'] }}">
-                <span class="font-semibold">{{ $commit['commit']['message'] }}</span>
-                <div class="flex flex-row">
-                    <div class="flex-1">{{ $commit['commit']['author']['name'] }}</div>
-                    <div class="flex-1 text-right">{{ \Carbon\Carbon::parse($commit['commit']['author']['date'])->format('d/m/Y') }}</div>    
-                </div>
-            </a>
-            @endforeach
-        </div>
-    </div>
 </x-app-layout>
