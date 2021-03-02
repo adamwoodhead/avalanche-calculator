@@ -29,7 +29,7 @@ class ContactForm extends Component
     public function submit(){
         $this->validate();
 
-        Mail::to('info@adamwoodhead.co.uk')->send(new ContactMail($this->email, $this->first_name, $this->last_name, $this->subject, $this->message));
+        Mail::to('adam@avalanchecalculator.com')->send(new ContactMail($this->email, $this->first_name, $this->last_name, $this->subject, $this->message));
 
         Mail::to($this->email)->send(new ContactReceiptMail($this->email, $this->first_name, $this->last_name, $this->subject, $this->message));
 
