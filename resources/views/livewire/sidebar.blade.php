@@ -8,7 +8,7 @@
         </a>
         <nav :class="{'block': open_1, 'hidden': !open_1, 'block': open_2, 'hidden': !open_2}" class="block px-4 pb-4 md:pb-0 md:overflow-y-auto space-y-2 relative">
             @guest
-            <a class="block px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-md animate-pulse" href="{{ route('register') }}">Register</a>
+            <a class="block px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-md" href="{{ route('register') }}">Register</a>
             <hr>
             @endguest
             <livewire:sidebar-link title="Dashboard" route="dashboard.show"/>
