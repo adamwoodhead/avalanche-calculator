@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DebtSeeder::class);
         $this->call(CalculationSeeder::class);
         $this->call(CalculationDebtSeeder::class);
+        $this->call(CommitSeeder::class);
     }
 }
