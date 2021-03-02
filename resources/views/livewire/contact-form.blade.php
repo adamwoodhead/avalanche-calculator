@@ -59,19 +59,19 @@
                     @auth
                         @if(Auth::user()->debts()->count() == 0)
                             <p>In the mean time why don't you try setting up some debts?</p>
-                            <a href="{{ route('debts.show') }}" class="flex-1 mt-4 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">View My Debts</a>
+                            <a href="{{ route('debts.show') }}" class="flex-1 mt-4 text-center bg-green-600 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-700">View My Debts</a>
                         @else
                             <p>In the mean time why don't you try out one of our calculators?</p>
                             <div class="flex flex-row flex-grow mt-4 space-x-4">
-                                <a href="{{ route('calculator.avalanche.show') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Avalanche<br/>Calculator</a>
-                                <a href="{{ route('calculator.snowball.show') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Snowball<br/>Calculator</a>
+                                <a href="{{ route('calculator.avalanche.show') }}" class="flex-1 text-center bg-green-600 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-700">Avalanche<br/>Calculator</a>
+                                <a href="{{ route('calculator.snowball.show') }}" class="flex-1 text-center bg-green-600 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-700">Snowball<br/>Calculator</a>
                             </div>
                         @endif
                     @else
                         <p>In the mean time, why don't you register an account? That way, you can save all your debts in one place and can visit previous calculations!</p>
                         <div class="flex flex-row flex-grow mt-4 space-x-4">
-                            <a href="{{ route('register') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Register</a>
-                            <a href="{{ route('login') }}" class="flex-1 text-center bg-green-500 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-600">Login</a>
+                            <a href="{{ route('register') }}" class="flex-1 text-center bg-green-600 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-700">Register</a>
+                            <a href="{{ route('login') }}" class="flex-1 text-center bg-green-600 rounded-md shadow-md py-2 px-4 text-white border border-solid border-gray-500 hover:bg-green-700">Login</a>
                         </div>
                     @endauth
                 </div>
