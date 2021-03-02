@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\View\Components;
 
 use Illuminate\Support\Facades\Route;
-use Livewire\Component;
+use Illuminate\View\Component;
 
 class Sidebar extends Component
 {
     public $contains_calculate = false;
     public $contains_how_to = false;
 
-    public function mount(){
+    public function __construct(){
         if(strpos(Route::currentRouteName(), 'calculator') !== false){
             $this->contains_calculate = true;
         }
@@ -22,6 +22,6 @@ class Sidebar extends Component
 
     public function render()
     {
-        return view('livewire.sidebar');
+        return view('components.sidebar');
     }
 }

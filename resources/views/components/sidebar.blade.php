@@ -11,8 +11,8 @@
             <a class="block px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-md" href="{{ route('register') }}"><span class="animate-pulse">Register</span></a>
             <hr>
             @endguest
-            <livewire:sidebar-link title="Dashboard" route="dashboard.show"/>
-            <livewire:sidebar-link title="Debts" route="debts.show"/>
+            <x-sidebar-link title="Dashboard" route="dashboard.show"/>
+            <x-sidebar-link title="Debts" route="debts.show"/>
             <div @click.away="open_1 = {{ $contains_calculate ? 'true' : 'false' }}" class="relative" x-data="{ open_1: {{ $contains_calculate ? 'true' : 'false' }} }">
                 <button @click="open_1 = !open_1" class="flex flex-row items-center w-full px-4 py-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                     <span>Calculators</span>
@@ -20,8 +20,8 @@
                 </button>
                 <div x-show="open_1" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow grid gap-y-2">
-                        <livewire:sidebar-link title="Avalanche Calculator" route="calculator.avalanche.show"/>
-                        <livewire:sidebar-link title="Snowball Calculator" route="calculator.snowball.show"/>
+                        <x-sidebar-link title="Avalanche Calculator" route="calculator.avalanche.show"/>
+                        <x-sidebar-link title="Snowball Calculator" route="calculator.snowball.show"/>
                     </div>
                 </div>
             </div>
@@ -32,13 +32,13 @@
                 </button>
                 <div x-show="open_2" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow grid gap-y-2">
-                        <livewire:sidebar-link title="How To Avalanche" route="how-to.avalanche.show"/>
-                        <livewire:sidebar-link title="How To Snowball" route="how-to.snowball.show"/>
+                        <x-sidebar-link title="How To Avalanche" route="how-to.avalanche.show"/>
+                        <x-sidebar-link title="How To Snowball" route="how-to.snowball.show"/>
                     </div>
                 </div>
             </div>
-            <livewire:sidebar-link title="Contact" route="contact.show"/>
-            <livewire:sidebar-link title="About" route="about.show"/>
+            <x-sidebar-link title="Contact" route="contact.show"/>
+            <x-sidebar-link title="About" route="about.show"/>
         </nav>
     </div>
 </div>

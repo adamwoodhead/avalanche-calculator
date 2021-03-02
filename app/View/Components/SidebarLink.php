@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\View\Components;
 
 use Illuminate\Support\Facades\Route;
-use Livewire\Component;
+use Illuminate\View\Component;
 
 class SidebarLink extends Component
 {
@@ -12,8 +12,11 @@ class SidebarLink extends Component
     public $background = "bg-transparent";
     public $foreground = "text-black";
 
-    public function mount()
+    public function __construct($title, $route)
     {
+        $this->title = $title;
+        $this->route = $route;
+
         if(Route::currentRouteName() == $this->route){
             $this->background = "bg-green-600";
             $this->foreground = "text-white";
@@ -22,6 +25,6 @@ class SidebarLink extends Component
 
     public function render()
     {
-        return view('livewire.sidebar-link');
+        return view('components.sidebar-link');
     }
 }
