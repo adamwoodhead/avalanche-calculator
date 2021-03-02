@@ -21,7 +21,7 @@
     </head>
     <body class="font-sans antialiased">
 
-        <livewire:sidebar/>
+        <x-sidebar/>
 
         <x-navigation-bar :title="$title ?? ucwords(str_replace('.', ' - ', str_replace('-', ' ', str_replace('.show', '', Route::currentRouteName()))))"/>
 
