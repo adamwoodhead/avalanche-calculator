@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        Contact Us
+    </x-slot>
     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
         <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm sm:w-1/4">
             <h2 class="text-lg font-semibold mb-4">Contacting US</h2>

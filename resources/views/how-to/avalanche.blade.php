@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        How The Avalanche Calculator Works
+    </x-slot>
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <div class="flex flex-col gap-y-3">
             <h2 class="text-lg font-semibold">What is the Avalanche Calculation?</h2>

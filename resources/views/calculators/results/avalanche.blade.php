@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        Avalanche Calculation Results
+    </x-slot>
     @push('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
     

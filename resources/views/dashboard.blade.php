@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        Avalanche Calculator
+    </x-slot>
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <h2 class="text-lg font-semibold">Debt Calculators</h2>
         <p class="mt-3">Let's get straight to the point, here are the two calculators you're here for...</p>

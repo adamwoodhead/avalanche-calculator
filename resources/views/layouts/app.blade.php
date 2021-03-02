@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }} | {{ ucwords(str_replace('.', ' - ', str_replace('-', ' ', str_replace('.show', '', Route::currentRouteName())))) }}</title>
+        <title>{{ $title ?? ucwords(str_replace('.', ' - ', str_replace('-', ' ', str_replace('.show', '', Route::currentRouteName())))) }} | Avalanche Calculator</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         
@@ -23,7 +23,7 @@
 
         <livewire:sidebar/>
 
-        <livewire:navigation-menu/>
+        <x-navigation-bar :title="$title ?? ucwords(str_replace('.', ' - ', str_replace('-', ' ', str_replace('.show', '', Route::currentRouteName()))))"/>
 
         <div class="min-h-screen bg-gray-100">
             <main class="md:pl-72">

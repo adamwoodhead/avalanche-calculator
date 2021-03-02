@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="title">
-        Just a test
+        About Us
     </x-slot>
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <h2 class="text-lg font-semibold mb-4">General Purpose</h2>

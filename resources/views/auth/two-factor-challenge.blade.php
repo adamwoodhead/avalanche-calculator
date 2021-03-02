@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        Two Factor Authentication
+    </x-slot>
     <x-jet-authentication-card>
         <x-slot name="header">
             <div>

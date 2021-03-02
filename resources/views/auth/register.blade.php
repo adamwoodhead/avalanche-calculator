@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="title">
+        Register An Account
+    </x-slot>
     <x-jet-authentication-card>
         <x-slot name="header">
             <div>
