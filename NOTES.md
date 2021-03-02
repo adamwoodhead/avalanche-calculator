@@ -1,0 +1,6 @@
+- Add Cookie Consent
+- Save Calculations (manual)
+- Generate Calculation Tokens for sharing
+- Delete non-user calculations after 1 month
+- Update session data with calculation after success (guest)
+- Load previous calculations on calculation page
