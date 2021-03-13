@@ -181,6 +181,8 @@ return [
 
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
 
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
+
     ],
 
     /*

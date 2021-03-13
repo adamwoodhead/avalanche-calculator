@@ -17,7 +17,7 @@
 
     {{-- Responsive Chart --}}
     <div class="hidden sm:block bg-white max-w-7xl mx-auto border border-gray-200 p-4">
-        <canvas id="debtChart" width="auto" height="auto"></canvas>
+        {!! $chartjs->render() !!}
     </div>
     <div class="block sm:hidden bg-white max-w-7xl mx-auto border border-gray-200 p-4">
         <p>Want to see a visualization of your debts? Tilt your phone to the side!</p>
@@ -122,65 +122,4 @@
             @endforeach
         </ul>
     </div>
-    @push('finalscripts')
-    <script async defer type="text/javascript">
-        var colours = [
-            "#F44336", // RED
-            "#2196F3", // BLUE
-            "#4CAF50", // GREEN
-            "#FFEB3B", // YELLOW
-            "#3F51B5", // INDIGO
-            "#FF9800", // ORANGE
-            "#9C27B0", // PURPLE
-            "#9E9E9E", // GREY
-            "#E91E63", // PINK
-            "#00BCD4", // CYAN
-            "#CDDC39", // LIME
-            "#009688", // TEAL
-            "#FF5722", // DEEP ORANGE
-            "#673AB7", // DEEP PURPLE
-            "#8BC34A", // LIGHT GREEN
-            // Reiterate all a load of times, it's incredibly doubtful anyone will enter any more debts than this.. ever
-            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
-            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
-            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
-        ];
-
-        var ctx = document.getElementById('debtChart').getContext('2d');
-        var debtChart = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: [
-                    @foreach($results['chart_keys'] as $month)
-                        "{{ $month }}",
-                    @endforeach
-                ],
-                datasets: [
-                    @foreach($results['chart_data'] as $key => $value)
-                    {
-                        label: "{{ $key }}",
-                        data: [
-                            @foreach($value as $balance)
-                                {{ round($balance, 2) }},
-                            @endforeach
-                        ],
-                        fill: "false",
-                        borderWidth: 3,
-                        borderColor: colours[{{ $loop->index }}]
-                    },
-                    @endforeach
-                ]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
-    @endpush
 </x-app-layout>
