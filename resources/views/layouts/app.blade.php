@@ -28,7 +28,7 @@
         <div class="min-h-screen bg-gray-100">
             <main class="md:pl-72">
                 <div class="md:py-8">
-                    <div class="flex-col max-w-7xl mx-auto sm:px-8 space-y-8">
+                    <div class="flex-col max-w-7xl mx-auto sm:px-8 space-y-8 relative">
                         {{ $slot }}
                     </div>
                 </div>
