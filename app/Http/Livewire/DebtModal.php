@@ -51,6 +51,7 @@ class DebtModal extends Component
     public function assign_create()
     {
         $this->debt = new Debt;
+        $this->debt->debt_type = 10;
         $this->show_modal = true;
     }
 
@@ -87,6 +88,7 @@ class DebtModal extends Component
     {
         $this->show_modal = false;
         $this->debt = new Debt;
+        $this->debt->debt_type = 10;
     }
 
     public function render()
