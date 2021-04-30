@@ -58,7 +58,6 @@ class CalculationDebtModal extends Component
 
     public function updated($property)
     {
-        $this->emit('debugLog', 'Updating Modal...');
         $this->validateOnly($property);
     }
 
