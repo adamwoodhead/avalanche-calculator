@@ -208,11 +208,13 @@ class Calculation extends Model
         ];
     }
 
-    private function nextMonth(&$date) {
+    private function nextMonth(&$date)
+    {
         return date('M Y', strtotime("+1 months", strtotime($date)));
     }
 
-    private function allDebtsAreZeroBalance(&$debts){
+    private function allDebtsAreZeroBalance(&$debts)
+    {
         foreach($debts as &$debt){
             if($debt["balance"] > 0) {
                 return false;
@@ -244,7 +246,8 @@ class Calculation extends Model
         return $arr;
     }
 
-    function combinedInterestAndChargeCost(&$debt){
+    function combinedInterestAndChargeCost(&$debt)
+    {
         if ($debt["balance"] == 0) {
             if($debt["monthly_charge"] > 0) {
                 return 100;

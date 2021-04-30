@@ -10,14 +10,7 @@
     </div>
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm w-full" x-show="open">
         <h2 class="flex-1 text-lg font-semibold">Calculation Wizard</h2>
-        <div class="w-full mt-4 flex flex-col space-y-4">
-            <livewire:calculation-debts-section :calculation="$calculation" />
-            <div class="w-full">
-                <a href="{{ route('calculator.results.avalanche.show') }}" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
-                    Calculate
-                </a>
-            </div>
-        </div>
+        <livewire:calculation-debts-section :calculation="$calculation" method="avalanche"/>
     </div>
     <livewire:calculation-debt-modal :calculation="$calculation"/>
     <livewire:calculation-delete-debt-modal />
