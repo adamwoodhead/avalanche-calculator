@@ -130,6 +130,10 @@ class CalculatorController extends Controller
             "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
             "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
             "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
+            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
+            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
+            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
+            "#F44336", "#2196F3", "#4CAF50", "#FFEB3B", "#3F51B5", "#FF9800", "#9C27B0", "#9E9E9E", "#E91E63", "#00BCD4", "#CDDC39", "#009688", "#FF5722", "#673AB7", "#8BC34A",
         ];
 
         $datasets = [];
@@ -141,7 +145,7 @@ class CalculatorController extends Controller
                 'label' => $key,
                 'fill' => false,
                 'borderWidth' => 3,
-                'borderColor' => $colours[0],
+                'borderColor' => $colours[$i],
                 'data' => array_map(function($num){ return number_format($num, 2, '.', ''); }, $value)
             ];
 
