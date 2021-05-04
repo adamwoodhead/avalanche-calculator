@@ -103,7 +103,6 @@
             gtag('config', 'UA-141686766-2');
         </script>
 
-
         @livewireScripts
 
         <script type="text/javascript">
