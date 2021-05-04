@@ -80,7 +80,7 @@ class DebtModal extends Component
 
         $this->show_modal = false;
         //$this->debt = null;
-        $this->emit('rerenderDebtRow');
+        //$this->emit('rerenderDebtRow');
         $this->emit('rerenderDebtsSection');
     }
 

@@ -11,16 +11,21 @@ class DebtsSection extends Component
     public $debts;
 
     protected $listeners = [
-        'rerenderDebtsSection' => '$refresh',
+        'rerenderDebtsSection' => 'remount',
     ];
 
-    public function create(){
-        $debt = new Debt;
-
+    public function create()
+    {
         $this->emit('assignDebtToCreate');
     }
 
-    public function mount(){
+    public function remount()
+    {
+        return $this->mount();
+    }
+
+    public function mount()
+    {
         $this->debts = Auth::user()->debts()->orderBy('name')->get();
     }
 
