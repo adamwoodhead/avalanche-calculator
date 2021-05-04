@@ -105,9 +105,13 @@ class CalculationDebtsSection extends Component
         $this->calculate_budget();
     }
 
-    public function mount(){
-
+    public function mount()
+    {
         $this->debts = $this->calculation->calculationDebts;
+
+        if (Auth::user()->debts()->count() > 0) {
+            $this->import_debt_id = Auth::user()->debts()->orderBy('name')->first()->id;
+        }
 
         $this->calculate_budget();
     }

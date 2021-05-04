@@ -16,8 +16,8 @@
             <div class="hidden sm:block border-r"></div>
             @auth
             <select wire:model="import_debt_id" class="block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 pl-4 pr-8 focus:outline-none focus:bg-white">
-                @foreach(Auth::user()->debts as $debt)
-                <option value="{{ $debt->id }}">{{ $debt->name }}</option>
+                @foreach(Auth::user()->debts()->orderBy('name')->get() as $debt)
+                <option value="{{ $debt->id }}"@once selected @endonce>{{ $debt->name }}</option>
                 @endforeach
             </select>
             @endauth
