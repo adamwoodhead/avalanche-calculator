@@ -66,6 +66,8 @@ class CalculationDebtsSection extends Component
 
                 CalculationDebt::create($debt_data);
 
+                $this->calculate_budget();
+
                 $this->sendToast(ToastType::SUCCESS, 'Debt imported!');
                 $this->emit('rerenderDebtsSection');
             }
