@@ -49,11 +49,6 @@
         <div class="w-full mt-4 flex flex-col space-y-4">
             <livewire:start-over-button />
             <livewire:calculation-debts-section :calculation="$calculation" />
-            <div class="w-full flex flew-row gap-x-6">
-                <a href="{{ route('calculator.results.avalanche.show') }}" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
-                    Calculate
-                </a>
-            </div>
         </div>
     </div>
     <livewire:calculation-debt-modal :calculation="$calculation"/>
