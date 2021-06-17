@@ -24,7 +24,7 @@
 
     <div class="flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0">
         {{-- Pay Off Summary --}}
-        <div class="bg-white max-w-7xl mx-auto border border-gray-200 p-4">
+        <div class="bg-white mx-auto border border-gray-200 p-4">
             <h2 class="text-lg font-semibold">Debt Overview</h2>
             <p>If you follow through with the plan below, you <span class="font-semibold">should</span> clear your debts in the next <span class="font-semibold">{{ count($results['months']) }}</span> months, finishing in {{ end($results['months'])["month"] }}. You'll be paying a total of £{{ array_sum(array_column($results['months'], "total")) }} which includes a total interest of £{{ array_sum(array_column($results['months'], "accruedinterest")) }}.</p>
             <p>If you stick to your budget, these are your projected pay-off dates:</p>
@@ -46,15 +46,17 @@
             </div>
         </div>
     
-        {{-- Switch Methods --}}
-        <div class="bg-white max-w-7xl mx-auto border border-gray-200 p-4">
-            <h2 class="text-lg font-semibold">Recalculate</h2>
-            <p>These are your results using the <span class="font-semibold">Avalanche</span> method.<br/>
-                You can quickly switch to the Snowball method if you'd like to see a different style of paying off debt!</p>
-            <a href="{{ route('calculator.results.snowball.show') }}" type="button" class="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white" href="#!">
-                <span class="hidden sm:block">Click here to see your results using the Snowball method!</span>
-                <span class="block sm:hidden">Recalculate in the Snowball Calculator</span>
-            </a>
+        <div class="flex flex-col space-y-4">
+            <div class="bg-white border border-gray-200 p-4">
+                <livewire:save-and-share calculation="{{ $calculation->id }}" />
+            </div>
+            <div class="bg-white border border-gray-200 p-4">
+                <h2 class="text-lg font-semibold">Prefer Snowball?</h2>
+                <p>You can quickly switch to the Snowball method if you'd like to see a different style of paying off debt!</p>
+                <a href="{{ route('calculator.results.snowball.show') }}{{ request()->has('secret') ? '?secret=' . request()->secret : '' }}" type="button" class="mt-4 w-full text-center bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white pointer-cursor">
+                    <p>Switch to the Snowball Calculator</p>
+                </a>
+            </div>
         </div>
     </div>
 

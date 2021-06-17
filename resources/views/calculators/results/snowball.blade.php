@@ -49,12 +49,11 @@
     
         {{-- Switch Methods --}}
         <div class="bg-white max-w-7xl mx-auto border border-gray-200 p-4">
-            <h2 class="text-lg font-semibold">Recalculate</h2>
+            <h2 class="text-lg font-semibold">Prefer Avalanche?</h2>
             <p>These are your results using the <span class="font-semibold">Snowball</span> method.<br/>
                 You can quickly switch to the Avalanche method if you'd like to see a different style of paying off debt!</p>
-            <a href="{{ route('calculator.results.avalanche.show') }}" type="button" class="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white" href="#!">
-                <span class="hidden sm:block">Click here to see your results using the Avalanche method!</span>
-                <span class="block sm:hidden">Recalculate in the Avalanche Calculator</span>
+            <a href="{{ route('calculator.results.avalanche.show') }}{{ request()->has('secret') ? '?secret=' . request()->secret : '' }}" type="button" class="mt-4 w-full text-center bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white pointer-cursor">
+                <p>Switch to the Snowball Calculator</p>
             </a>
         </div>
     </div>
