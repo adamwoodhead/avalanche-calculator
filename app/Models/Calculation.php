@@ -6,6 +6,7 @@ use App\Enums\CalculationMode;
 use App\Enums\DebtType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Calculation extends Model
 {
@@ -258,6 +259,12 @@ class Calculation extends Model
         $nondecimal = $annual * 100;
 
         return $nondecimal;
+    }
+
+    public function generateToken()
+    {
+        $this->access_token = Str::uuid();
+        $this->save();
     }
 
     public function calculationDebts()
