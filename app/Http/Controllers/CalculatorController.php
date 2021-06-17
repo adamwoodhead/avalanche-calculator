@@ -15,8 +15,8 @@ class CalculatorController extends Controller
     {
         $calculation = null;
 
-        if (session()->has('temp_calculation')) {
-            $calculation_id = session('temp_calculation');
+        if (session()->has('edit_calculation')) {
+            $calculation_id = session('edit_calculation');
             $calculation = Calculation::find($calculation_id) ?? Calculation::create();
         } else {
             $calculation = Calculation::create();
@@ -33,8 +33,8 @@ class CalculatorController extends Controller
     {
         $calculation = null;
 
-        if (session()->has('temp_calculation')) {
-            $calculation_id = session('temp_calculation');
+        if (session()->has('edit_calculation')) {
+            $calculation_id = session('edit_calculation');
             $calculation = Calculation::find($calculation_id) ?? Calculation::create();
         } else {
             $calculation = Calculation::create();
@@ -55,17 +55,23 @@ class CalculatorController extends Controller
 
         if ($request->isMethod('get')) {
             if($request->has('secret')){
-                $accessToken = preg_replace("/[^a-zA-Z0-9]+/", "", $request->secret);
-                $calculation = Calculation::with('calculationDebts')->where('access_token', '=', $accessToken)->first();
+                $calculation = Calculation::with('calculationDebts')->where('access_token', '=', $request->secret)->firstOrFail();
             } else if (session()->has('temp_calculation')) {
                 $calculation_id = session('temp_calculation');
                 $calculation = Calculation::find($calculation_id);
+
+                if(Auth::check()){
+                    $calculation->user_id = Auth::user()->id;
+                    $calculation->save();
+                }
             }
         }
 
         $results = null;
         if($calculation != null){
             $results = $calculation->calculate(CalculationMode::AVALANCHE);
+        } else {
+            abort(426);
         }
 
         //dd($results);
@@ -86,8 +92,7 @@ class CalculatorController extends Controller
 
         if ($request->isMethod('get')) {
             if($request->has('secret')){
-                $accessToken = preg_replace("/[^a-zA-Z0-9]+/", "", $request->secret);
-                $calculation = Calculation::with('calculationDebts')->where('access_token', '=', $accessToken)->first();
+                $calculation = Calculation::with('calculationDebts')->where('access_token', '=', $request->secret)->firstOrFail();
             } else if (session()->has('temp_calculation')) {
                 $calculation_id = session('temp_calculation');
                 $calculation = Calculation::find($calculation_id);
@@ -141,7 +146,7 @@ class CalculatorController extends Controller
                 'label' => $key,
                 'fill' => false,
                 'borderWidth' => 3,
-                'borderColor' => $colours[0],
+                'borderColor' => $colours[$i],
                 'data' => array_map(function($num){ return number_format($num, 2, '.', ''); }, $value)
             ];
 
