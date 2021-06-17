@@ -93,9 +93,9 @@
 
         @stack('modals')
 
-        @stack('finalscripts')
-
         @livewireScripts
+
+        @stack('finalscripts')
 
         <script type="text/javascript">
             var debugLogs = 0;
