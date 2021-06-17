@@ -4,7 +4,7 @@
     </x-slot>
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm">
         <h2 class="text-xl font-semibold pb-4">Debts</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices finibus quam, quis fringilla velit sollicitudin non. Morbi auctor elit a ex suscipit pellentesque. Etiam eu libero sagittis, fermentum erat nec, hendrerit lectus. Donec lobortis elementum porttitor. Aenean vitae leo ac augue pretium eleifend id vel ligula.</p>
+        <p>Save all your debts to your account, use them with or without one another in the calculations you create.</p>
     </div>
     <livewire:debts-section/>
     @push('modals')

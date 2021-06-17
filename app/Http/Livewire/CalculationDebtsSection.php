@@ -12,13 +12,16 @@ class CalculationDebtsSection extends Component
 {
     use ToastFunctionality;
 
+    public $min_budget;
+    public $method;
     public $calculation;
     public $debts;
     public $import_debt_id;
 
     protected $listeners = [
         'rerenderDebtsSection' => '$refresh',
-        'importDebt' => 'import'
+        'importDebt' => 'import',
+        'recalculatBudget' => 'calculate_budget',
     ];
 
     protected $rules = [
@@ -63,10 +66,34 @@ class CalculationDebtsSection extends Component
 
                 CalculationDebt::create($debt_data);
 
+                $this->calculate_budget();
+
                 $this->sendToast(ToastType::SUCCESS, 'Debt imported!');
                 $this->emit('rerenderDebtsSection');
             }
         }
+    }
+
+    public function submit_for_calculation()
+    {
+        if($this->calculation->budget != null || $this->calculation->budget >= $this->min_budget) { 
+            $this->redirect(route('calculator.results.' . $this->method . '.show'));
+        } else {
+            $this->sendToast(ToastType::ERROR, 'Please enter a budget for your calculation!');
+        }
+    }
+
+    private function calculate_budget()
+    {
+        $this->min_budget = 0;
+
+        foreach ($this->calculation->calculationDebts as $debt) {
+            $debt_minimum = max($debt->min_payment_fixed, (($debt->min_payment_percent / 100) * $debt->opening_balance));
+            $this->min_budget = $this->min_budget + $debt_minimum;
+        }
+
+        $this->calculation->budget = max($this->calculation->budget, $this->min_budget);
+        $this->calculation->save();
     }
 
     public function updated()
@@ -74,11 +101,19 @@ class CalculationDebtsSection extends Component
         $this->validate();
         
         $this->calculation->save();
+
+        $this->calculate_budget();
     }
 
-    public function mount(){
-
+    public function mount()
+    {
         $this->debts = $this->calculation->calculationDebts;
+
+        if (Auth::user()->debts()->count() > 0) {
+            $this->import_debt_id = Auth::user()->debts()->orderBy('name')->first()->id;
+        }
+
+        $this->calculate_budget();
     }
 
     public function render()
