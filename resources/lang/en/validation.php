@@ -131,7 +131,7 @@ return [
     */
 
     'custom' => [
-        'captcha' => [
+        'g-recaptcha-response' => [
             'required' => 'You must complete the ReCaptcha.',
         ],
     ],
