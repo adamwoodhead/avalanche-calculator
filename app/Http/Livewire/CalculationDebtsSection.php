@@ -109,7 +109,7 @@ class CalculationDebtsSection extends Component
     {
         $this->debts = $this->calculation->calculationDebts;
 
-        if (Auth::user()->debts()->count() > 0) {
+        if (Auth::check() && Auth::user()->debts()->count() > 0) {
             $this->import_debt_id = Auth::user()->debts()->orderBy('name')->first()->id;
         }
 
