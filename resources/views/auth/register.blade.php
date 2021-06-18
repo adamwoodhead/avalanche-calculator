@@ -50,8 +50,8 @@
                     </x-jet-label>
                 </div>
             @endif
-            
-            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+
+            <div class="g-recaptcha" data-sitekey="6Le6WD8bAAAAAK8TSK6QfxIIs-fw0Y4DDgScpN-_"></div>
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
