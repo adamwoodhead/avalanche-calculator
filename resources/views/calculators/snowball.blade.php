@@ -46,7 +46,6 @@
     <div class="bg-white p-4 border border-gray-200 border-solid shadow-sm rounded-sm w-full" x-show="open">
         <h2 class="flex-1 text-lg font-semibold">Calculation Wizard</h2>
         <div class="w-full mt-4 flex flex-col space-y-4">
-            <livewire:start-over-button />
             <livewire:calculation-debts-section :calculation="$calculation" method="snowball"/>
         </div>
     </div>

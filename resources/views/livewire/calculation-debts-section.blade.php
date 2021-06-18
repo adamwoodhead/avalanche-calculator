@@ -57,9 +57,13 @@
             </div>
         </div>
     </div>
-    <div class="w-full">
-        <button wire:click="submit_for_calculation" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
+    <div class="flex w-full">
+        <button wire:click="submit_for_calculation" class="flex-shrink w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
             Calculate
         </button>
+        <div class="flex-grow"></div>
+        <div class="flex-shrink">
+            <livewire:start-over-button />
+        </div>
     </div>
 </div>
