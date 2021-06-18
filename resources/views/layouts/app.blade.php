@@ -18,6 +18,8 @@
         @livewireStyles
 
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body class="font-sans antialiased">
 
