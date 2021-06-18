@@ -131,8 +131,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'captcha' => [
+            'required' => 'You must complete the ReCaptcha.',
         ],
     ],
 
