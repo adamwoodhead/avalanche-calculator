@@ -183,6 +183,8 @@ return [
 
         Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
 
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
     ],
 
     /*
@@ -238,6 +240,8 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         'GitHub' => GrahamCampbell\GitHub\Facades\GitHub::class,
+
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 
     ],
 

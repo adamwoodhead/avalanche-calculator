@@ -52,9 +52,7 @@
             @endif
 
             <div class="mt-4">
-                <div class="mx-auto">
-                    <div class="g-recaptcha" data-sitekey="6Le6WD8bAAAAAK8TSK6QfxIIs-fw0Y4DDgScpN-_"></div>
-                </div>
+                {!! NoCaptcha::display() !!}
             </div>
             
             <div class="flex items-center justify-end mt-4">
